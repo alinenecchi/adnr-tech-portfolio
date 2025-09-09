@@ -15,9 +15,29 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   className,
   isDarkMode,
 }) => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const { theme } = useTheme();
   const [heroRef, inView] = useIntersectionObserver({ threshold: 0.1 });
+
+  const handleDownloadCV = () => {
+    // Mapear idiomas para arquivos de CV
+    const cvFiles = {
+      pt: "CV- ALINE - 2025.pdf",
+      en: "CV- US-2025.pdf",
+      es: "CV-ALINE-ES-2025.pdf",
+    };
+
+    const fileName = cvFiles[language as keyof typeof cvFiles] || cvFiles["pt"];
+    const filePath = `/docs/${fileName}`;
+
+    // Criar link temporário para download
+    const link = document.createElement("a");
+    link.href = filePath;
+    link.download = fileName;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   const mainTechs = [
     "React",
@@ -99,11 +119,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   <ArrowDown className="ml-2 h-4 w-4 group-hover:translate-y-1 transition-transform" />
                 </Link>
               </Button>
-              <Button variant="outline" size="lg">
-                <Link href="#contact" className="flex items-center">
+              <Button variant="outline" size="lg" onClick={handleDownloadCV}>
+                <div className="flex items-center">
                   <Download className="mr-2 h-4 w-4" />
                   {t("data.about.resumeButton")}
-                </Link>
+                </div>
               </Button>
             </div>
           </div>
