@@ -26,7 +26,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
     {
       icon: Mail,
       label: "E-mail",
-      value: "aline@exemplo.com",
+      value: "alinencchi@gmail.com",
       href: "mailto:alinencchi@gmail.com",
     },
     {
