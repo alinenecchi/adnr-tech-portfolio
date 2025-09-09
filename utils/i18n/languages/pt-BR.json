@@ -24,19 +24,6 @@
     "moreProjects": "Quer ver mais projetos?",
     "visitGitHub": "Visite meu GitHub"
   },
-  "skills": {
-    "title": "Habilidades Técnicas",
-    "description": "Tecnologias e ferramentas que domino para criar soluções completas",
-    "additionalSkills": "Outras Competências",
-    "methodologies": "Metodologias",
-    "versioning": "Versionamento",
-    "softSkills": "Soft Skills",
-    "languages": "Idiomas",
-    "methodologiesText": "Scrum, Kanban, Clean Code, TDD",
-    "versioningText": "Git, GitHub, GitLab, Git Flow",
-    "softSkillsText": "Comunicação, Trabalho em equipe, Liderança",
-    "languagesText": "Português (Nativo), Inglês (Intermediário)"
-  },
   "contact": {
     "title": "Vamos Conversar?",
     "description": "Tem um projeto em mente? Entre em contato e vamos criar algo incrível juntos!",
@@ -122,6 +109,17 @@
     }
   },
   "skills": {
+    "title": "Habilidades Técnicas",
+    "description": "Tecnologias e ferramentas que domino para criar soluções completas",
+    "additionalSkills": "Outras Competências",
+    "methodologies": "Metodologias",
+    "versioning": "Versionamento",
+    "softSkills": "Soft Skills",
+    "languages": "Idiomas",
+    "methodologiesText": "Scrum, Kanban, Clean Code, TDD",
+    "versioningText": "Git, GitHub, GitLab, Git Flow",
+    "softSkillsText": "Comunicação, Trabalho em equipe, Liderança",
+    "languagesText": "Português (Nativo), Inglês (Intermediário)",
     "tools": "Principais ferramentas:",
     "categories": {
       "frontend": "Frontend",
