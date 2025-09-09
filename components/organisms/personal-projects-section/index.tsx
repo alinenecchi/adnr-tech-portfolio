@@ -1,7 +1,10 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { PersonalProjectsSectionProps, PersonalProject } from "./PersonalProjectsSection.types";
+import {
+  PersonalProjectsSectionProps,
+  PersonalProject,
+} from "./PersonalProjectsSection.types";
 import { getPersonalProjectsStyles } from "./PersonalProjectsSection.styles";
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -9,9 +12,9 @@ import { useTheme } from "@/contexts/ThemeContext";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import { ExternalLink, Github, ChevronLeft, ChevronRight } from "lucide-react";
 
-export const PersonalProjectsSection: React.FC<PersonalProjectsSectionProps> = ({
-  className,
-}) => {
+export const PersonalProjectsSection: React.FC<
+  PersonalProjectsSectionProps
+> = ({ className }) => {
   const { t } = useLanguage();
   const { theme } = useTheme();
   const [personalProjectsRef] = useIntersectionObserver({ threshold: 0.1 });
@@ -25,12 +28,18 @@ export const PersonalProjectsSection: React.FC<PersonalProjectsSectionProps> = (
       description: t("personalProjects.aiInterview.description"),
       longDescription: t("personalProjects.aiInterview.longDescription"),
       image: "/images/personal-projects/interview.png",
-      technologies: ["React", "TypeScript", "Google Gemini AI", "Web Speech API", "TailwindCSS"],
+      technologies: [
+        "React",
+        "TypeScript",
+        "Google Gemini AI",
+        "Web Speech API",
+        "TailwindCSS",
+      ],
       liveUrl: "https://ai-interview-assistant-rosy.vercel.app/",
       githubUrl: "https://github.com/alinenecchi/ai-interview-assistant",
       category: "personal",
       featured: true,
-      year: "2024"
+      year: "2024",
     },
     {
       id: "schools-calendar",
@@ -38,22 +47,28 @@ export const PersonalProjectsSection: React.FC<PersonalProjectsSectionProps> = (
       description: t("personalProjects.schoolsCalendar.description"),
       longDescription: t("personalProjects.schoolsCalendar.longDescription"),
       image: "/images/personal-projects/calendar.png",
-      technologies: ["React", "JavaScript", "CSS3", "Local Storage", "Responsive Design"],
+      technologies: [
+        "React",
+        "JavaScript",
+        "CSS3",
+        "Local Storage",
+        "Responsive Design",
+      ],
       liveUrl: "https://schools-calendar.vercel.app/",
       category: "college",
       featured: true,
-      year: "2023"
-    }
+      year: "2023",
+    },
   ];
 
   const maxIndex = Math.max(0, personalProjects.length - 1);
 
   const nextSlide = () => {
-    setCurrentIndex(prev => prev >= maxIndex ? 0 : prev + 1);
+    setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
   };
 
   const prevSlide = () => {
-    setCurrentIndex(prev => prev <= 0 ? maxIndex : prev - 1);
+    setCurrentIndex((prev) => (prev <= 0 ? maxIndex : prev - 1));
   };
 
   const goToSlide = (index: number) => {
@@ -63,7 +78,7 @@ export const PersonalProjectsSection: React.FC<PersonalProjectsSectionProps> = (
   // Auto-play carousel
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex(prev => prev >= maxIndex ? 0 : prev + 1);
+      setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
     }, 5000);
 
     return () => clearInterval(interval);
@@ -74,13 +89,19 @@ export const PersonalProjectsSection: React.FC<PersonalProjectsSectionProps> = (
       <div className={styles.content}>
         {/* Header */}
         <div className={styles.header}>
-          <h2 
+          <h2
             className={styles.title}
             style={{ color: `var(--color-text-primary)` }}
           >
-            {t("personalProjects.title")}
+            {t("personalProjects.title")}{" "}
+            <span
+              className="text-current"
+              style={{ color: `var(--color-accent-primary)` }}
+            >
+              .
+            </span>
           </h2>
-          <p 
+          <p
             className={styles.subtitle}
             style={{ color: `var(--color-text-secondary)` }}
           >
@@ -88,29 +109,30 @@ export const PersonalProjectsSection: React.FC<PersonalProjectsSectionProps> = (
           </p>
         </div>
 
-
         {/* Carousel */}
-        <div 
+        <div
           className={styles.carousel}
           style={{ backgroundColor: `var(--color-background-secondary)` }}
         >
-          <div 
+          <div
             className={styles.carouselTrack}
             style={{ transform: `translateX(-${currentIndex * 100}%)` }}
           >
             {personalProjects.map((project) => {
               return (
                 <div key={project.id} className={styles.carouselItem}>
-                  <div 
+                  <div
                     className={styles.projectCard}
-                    style={{ backgroundColor: `var(--color-background-primary)` }}
+                    style={{
+                      backgroundColor: `var(--color-background-primary)`,
+                    }}
                   >
                     {/* Project Image */}
                     <div className={styles.projectImage}>
                       <img
                         src={project.image}
                         alt={project.title}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover object-top"
                       />
                       <div className={styles.projectImageOverlay} />
                       <div className={styles.projectImageContent}>
@@ -121,30 +143,34 @@ export const PersonalProjectsSection: React.FC<PersonalProjectsSectionProps> = (
 
                     {/* Project Content */}
                     <div className={styles.projectContent}>
-                      <h3 
-                        className={styles.projectTitle}
+                      <h3
+                        className={cn(styles.projectTitle, "text-center")}
                         style={{ color: `var(--color-text-primary)` }}
                       >
                         {project.title}
                       </h3>
-                      <p 
-                        className={styles.projectDescription}
+                      <p
+                        className={cn(styles.projectDescription, "text-center")}
                         style={{ color: `var(--color-text-secondary)` }}
                       >
                         {project.description}
                       </p>
 
-
                       {/* Actions */}
-                      <div className={styles.projectActions}>
+                      <div
+                        className={cn(styles.projectActions, "justify-center")}
+                      >
                         <a
                           href={project.liveUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className={cn(styles.actionButton, styles.primaryButton)}
+                          className={cn(
+                            styles.actionButton,
+                            styles.primaryButton
+                          )}
                           style={{
                             backgroundColor: `var(--color-accent-primary)`,
-                            color: 'white',
+                            color: "white",
                           }}
                         >
                           <ExternalLink className="w-4 h-4" />
@@ -155,7 +181,10 @@ export const PersonalProjectsSection: React.FC<PersonalProjectsSectionProps> = (
                             href={project.githubUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className={cn(styles.actionButton, styles.secondaryButton)}
+                            className={cn(
+                              styles.actionButton,
+                              styles.secondaryButton
+                            )}
                             style={{
                               borderColor: `var(--color-border)`,
                               color: `var(--color-text-primary)`,
@@ -188,7 +217,7 @@ export const PersonalProjectsSection: React.FC<PersonalProjectsSectionProps> = (
               >
                 <ChevronLeft className="w-6 h-6" />
               </button>
-              
+
               <div className={styles.navDots}>
                 {Array.from({ length: maxIndex + 1 }).map((_, index) => (
                   <button
@@ -199,9 +228,10 @@ export const PersonalProjectsSection: React.FC<PersonalProjectsSectionProps> = (
                       currentIndex === index && styles.activeDot
                     )}
                     style={{
-                      backgroundColor: currentIndex === index 
-                        ? `var(--color-accent-primary)` 
-                        : `var(--color-border)`,
+                      backgroundColor:
+                        currentIndex === index
+                          ? `var(--color-accent-primary)`
+                          : `var(--color-border)`,
                     }}
                   />
                 ))}
@@ -222,7 +252,6 @@ export const PersonalProjectsSection: React.FC<PersonalProjectsSectionProps> = (
             </div>
           )}
         </div>
-
       </div>
     </div>
   );

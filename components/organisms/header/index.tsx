@@ -40,12 +40,12 @@ export const Header: React.FC<HeaderProps> = ({ className }) => {
         borderColor: `var(--color-border)`,
       }}
     >
-      <div className="container mx-auto px-6 py-4">
+      <div className="container mx-auto px-4 sm:px-6 py-4">
         <div className="flex items-center justify-between">
-          <Link href="#" className="flex items-center space-x-3">
+          <Link href="#" className="flex items-center">
             <AdnrTechLogo
-              width={320}
-              height={90}
+              width={280}
+              height={80}
               variant="default"
               showText={true}
               primaryColor={`var(--color-accent-primary)`}
@@ -62,43 +62,43 @@ export const Header: React.FC<HeaderProps> = ({ className }) => {
             />
           </Link>
 
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8">
             <Link
               href="#about"
-              className="nav-link text-lg"
+              className="nav-link text-base xl:text-lg"
               style={{ color: `var(--color-text-secondary)` }}
             >
               {t("navigation.about")}
             </Link>
             <Link
               href="#skills"
-              className="nav-link text-lg"
+              className="nav-link text-base xl:text-lg"
               style={{ color: `var(--color-text-secondary)` }}
             >
               {t("navigation.skills")}
             </Link>
             <Link
               href="#projects"
-              className="nav-link text-lg"
+              className="nav-link text-base xl:text-lg"
               style={{ color: `var(--color-text-secondary)` }}
             >
               {t("navigation.projects")}
             </Link>
             <Link
               href="#contact"
-              className="nav-link text-lg"
+              className="nav-link text-base xl:text-lg"
               style={{ color: `var(--color-text-secondary)` }}
             >
               {t("navigation.contact")}
             </Link>
           </nav>
 
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden lg:flex items-center space-x-3 xl:space-x-4">
             <ThemeSelector />
             <LanguageSelector />
           </div>
 
-          <div className="md:hidden flex items-center space-x-2">
+          <div className="lg:hidden flex items-center space-x-2">
             <button
               onClick={toggleMenu}
               className="p-2 rounded-md focus:outline-none"
@@ -142,7 +142,7 @@ export const Header: React.FC<HeaderProps> = ({ className }) => {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden transition-all duration-300 ease-in-out overflow-hidden ${
+        className={`lg:hidden transition-all duration-300 ease-in-out overflow-hidden ${
           isMobileMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
         }`}
         style={{ backgroundColor: "var(--color-background-secondary)" }}
