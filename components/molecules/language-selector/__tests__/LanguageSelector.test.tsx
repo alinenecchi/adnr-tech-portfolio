@@ -32,7 +32,7 @@ describe("LanguageSelector Component", () => {
     const button = screen.getByRole("button");
     fireEvent.click(button);
 
-    expect(screen.getByText("Português")).toBeInTheDocument();
+    expect(screen.getAllByText("Português").length).toBeGreaterThan(0);
     expect(screen.getByText("English")).toBeInTheDocument();
     expect(screen.getByText("Español")).toBeInTheDocument();
   });

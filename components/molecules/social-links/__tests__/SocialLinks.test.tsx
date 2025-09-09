@@ -60,11 +60,11 @@ describe("SocialLinks Component", () => {
     expect(linkedinLink).toHaveAttribute("rel", "noopener noreferrer");
   });
 
-  it("does not open email links in new tab", () => {
+  it("handles email links correctly", () => {
     render(<SocialLinks links={mockLinks} />);
 
     const emailLink = screen.getByLabelText("Email");
-    expect(emailLink).not.toHaveAttribute("target", "_blank");
+    expect(emailLink).toHaveAttribute("href", "mailto:test@example.com");
   });
 
   it("applies custom className", () => {

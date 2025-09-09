@@ -36,6 +36,6 @@ describe("Badge Component", () => {
   it("renders with custom style prop", () => {
     render(<Badge style={{ backgroundColor: "red" }}>Styled Badge</Badge>);
     const badge = screen.getByText("Styled Badge");
-    expect(badge).toHaveStyle("background-color: red");
+    expect(badge).toHaveStyle("background-color: rgb(255, 0, 0)");
   });
 });

@@ -47,8 +47,8 @@ describe("Navigation Component", () => {
     const homeLink = screen.getByText("Home").closest("a");
     const aboutLink = screen.getByText("About").closest("a");
 
-    expect(homeLink).toHaveClass("active");
-    expect(aboutLink).not.toHaveClass("active");
+    expect(homeLink).toHaveClass("text-accent-primary", "font-semibold");
+    expect(aboutLink).toHaveClass("text-text-secondary");
   });
 
   it("applies custom className", () => {

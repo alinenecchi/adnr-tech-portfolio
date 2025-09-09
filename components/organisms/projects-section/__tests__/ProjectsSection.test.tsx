@@ -70,12 +70,12 @@ describe("ProjectsSection Component", () => {
   it("shows more projects link", () => {
     renderWithProviders(<ProjectsSection />);
     expect(screen.getByText("Quer ver mais projetos?")).toBeInTheDocument();
-    expect(screen.getByText(/GitHub/)).toBeInTheDocument();
+    expect(screen.getByText("Visite meu GitHub →")).toBeInTheDocument();
   });
 
   it("has correct GitHub profile link", () => {
     renderWithProviders(<ProjectsSection />);
-    const githubLink = screen.getByRole("link", { name: /GitHub/i });
+    const githubLink = screen.getByText("Visite meu GitHub →").closest("a");
     expect(githubLink).toHaveAttribute(
       "href",
       "https://github.com/alinenecchi"

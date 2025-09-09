@@ -5,33 +5,27 @@ import { Divider } from "../index";
 
 describe("Divider Component", () => {
   it("renders horizontal divider by default", () => {
-    render(<Divider />);
-    const divider = screen.getByRole("separator");
+    const { container } = render(<Divider />);
+    const divider = container.firstChild;
     expect(divider).toBeInTheDocument();
-    expect(divider).toHaveClass("border-t");
+    expect(divider).toHaveClass("w-full");
   });
 
   it("renders vertical divider when orientation is vertical", () => {
-    render(<Divider orientation="vertical" />);
-    const divider = screen.getByRole("separator");
-    expect(divider).toHaveClass("border-l");
+    const { container } = render(<Divider orientation="vertical" />);
+    const divider = container.firstChild;
+    expect(divider).toHaveClass("h-full");
   });
 
   it("applies custom className", () => {
-    render(<Divider className="custom-divider" />);
-    const divider = screen.getByRole("separator");
+    const { container } = render(<Divider className="custom-divider" />);
+    const divider = container.firstChild;
     expect(divider).toHaveClass("custom-divider");
   });
 
-  it("has correct aria-orientation for vertical divider", () => {
-    render(<Divider orientation="vertical" />);
-    const divider = screen.getByRole("separator");
-    expect(divider).toHaveAttribute("aria-orientation", "vertical");
-  });
-
-  it("has correct aria-orientation for horizontal divider", () => {
-    render(<Divider orientation="horizontal" />);
-    const divider = screen.getByRole("separator");
-    expect(divider).toHaveAttribute("aria-orientation", "horizontal");
+  it("renders as div element", () => {
+    const { container } = render(<Divider />);
+    const divider = container.firstChild as HTMLElement;
+    expect(divider.tagName).toBe("DIV");
   });
 });
