@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { ContactSectionProps } from "./ContactSection.types";
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -99,11 +99,11 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
             </p>
 
             <div className="space-y-4">
-              {contactInfo.map((info, index) => {
+              {contactInfo.map((info) => {
                 const Icon = info.icon;
                 return (
                   <a
-                    key={index}
+                    key={info.label}
                     href={info.href}
                     className="flex items-center gap-3 p-3 rounded-lg transition-colors"
                     style={{
