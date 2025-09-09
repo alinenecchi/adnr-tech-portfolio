@@ -97,8 +97,8 @@ export const LogoShowcase: React.FC<LogoShowcaseProps> = ({ className }) => {
         </Title>
 
         <div className={styles.grid}>
-          {logoVariants.map((variant, index) => (
-            <div key={index} className={styles.card}>
+          {logoVariants.map((variant) => (
+            <div key={variant.title} className={styles.card}>
               <Title level={3} className={styles.cardTitle}>
                 {variant.title}
               </Title>
