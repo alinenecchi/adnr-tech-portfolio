@@ -23,7 +23,7 @@ export const GridSection: React.FC<GridSectionProps> = ({
     <section
       ref={sectionRef}
       id={id}
-      className={`py-20 md:py-28 section-animate ${sectionClasses} ${className}`}
+      className={`py-10 md:py-20 section-animate ${sectionClasses} ${className}`}
     >
       <div className="container mx-auto px-6">
         <h2
