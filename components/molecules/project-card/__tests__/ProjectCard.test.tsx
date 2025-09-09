@@ -55,7 +55,7 @@ describe("ProjectCard Component", () => {
 
   it("renders demo button when demoUrl is provided", () => {
     renderWithProviders(<ProjectCard {...mockProject} />);
-    const demoButton = screen.getByRole("link", { name: /ver demo/i });
+    const demoButton = screen.getByRole("link", { name: /ir para o site/i });
     expect(demoButton).toBeInTheDocument();
     expect(demoButton).toHaveAttribute("href", "https://demo.example.com");
     expect(demoButton).toHaveAttribute("target", "_blank");
@@ -76,7 +76,7 @@ describe("ProjectCard Component", () => {
     const projectWithoutDemo = { ...mockProject, demoUrl: undefined };
     renderWithProviders(<ProjectCard {...projectWithoutDemo} />);
     expect(
-      screen.queryByRole("link", { name: /ver demo/i })
+      screen.queryByRole("link", { name: /ir para o site/i })
     ).not.toBeInTheDocument();
   });
 
@@ -99,7 +99,7 @@ describe("ProjectCard Component", () => {
 
   it("renders external link icon in demo button", () => {
     renderWithProviders(<ProjectCard {...mockProject} />);
-    const demoButton = screen.getByRole("link", { name: /ver demo/i });
+    const demoButton = screen.getByRole("link", { name: /ir para o site/i });
     // The icon should be present (lucide-react icons render as SVG)
     expect(demoButton.querySelector("svg")).toBeInTheDocument();
   });

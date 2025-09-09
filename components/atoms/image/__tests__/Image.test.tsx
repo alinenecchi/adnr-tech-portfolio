@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import { Image } from "../index";
+import { CustomImage as Image } from "../index";
 
 describe("Image Component", () => {
   const defaultProps = {

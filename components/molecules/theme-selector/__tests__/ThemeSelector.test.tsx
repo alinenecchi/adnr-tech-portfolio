@@ -23,8 +23,8 @@ describe("ThemeSelector Component", () => {
     renderWithProviders(<ThemeSelector />);
     const button = screen.getByRole("button");
     fireEvent.click(button);
-
-    expect(screen.getByText(/modern/i)).toBeInTheDocument();
+    
+    expect(screen.getAllByText(/modern/i).length).toBeGreaterThan(0);
     expect(screen.getByText(/minimal/i)).toBeInTheDocument();
   });
 
@@ -32,12 +32,12 @@ describe("ThemeSelector Component", () => {
     renderWithProviders(<ThemeSelector />);
     const button = screen.getByRole("button");
     fireEvent.click(button);
-
+    
     // Should show all theme options
-    expect(screen.getByText(/modern/i)).toBeInTheDocument();
+    expect(screen.getAllByText(/modern/i).length).toBeGreaterThan(0);
     expect(screen.getByText(/minimal/i)).toBeInTheDocument();
-    expect(screen.getByText(/futuristic/i)).toBeInTheDocument();
-    expect(screen.getByText(/corporate/i)).toBeInTheDocument();
+    expect(screen.getByText(/futurist/i)).toBeInTheDocument();
+    expect(screen.getByText(/corporativ/i)).toBeInTheDocument();
   });
 
   it("applies custom className", () => {

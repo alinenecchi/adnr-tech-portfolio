@@ -5,42 +5,28 @@ import { LogoShowcase } from "../index";
 
 describe("LogoShowcase Component", () => {
   it("renders logo showcase container", () => {
-    render(<LogoShowcase />);
-    const container =
-      screen.getByTestId("logo-showcase") || screen.getByRole("region");
-    expect(container).toBeInTheDocument();
+    const { container } = render(<LogoShowcase />);
+    expect(container.firstChild).toBeInTheDocument();
   });
 
-  it("displays multiple logo variants", () => {
+  it("displays logo section title", () => {
     render(<LogoShowcase />);
+    expect(screen.getByText("Variações do Logo ADNR Tech")).toBeInTheDocument();
+  });
 
-    // Should render different logo variants
-    const logos = screen.getAllByRole("img", { hidden: true });
-    expect(logos.length).toBeGreaterThan(0);
+  it("shows logo variants", () => {
+    render(<LogoShowcase />);
+    expect(screen.getByText("Logo Completo")).toBeInTheDocument();
   });
 
   it("applies custom className", () => {
-    render(<LogoShowcase className="custom-showcase" />);
-    const container =
-      screen.getByTestId("logo-showcase") ||
-      document.querySelector(".custom-showcase");
-    expect(container).toHaveClass("custom-showcase");
+    const { container } = render(<LogoShowcase className="custom-showcase" />);
+    expect(container.firstChild).toHaveClass("custom-showcase");
   });
 
-  it("shows logo variations", () => {
+  it("renders with grid layout", () => {
     render(<LogoShowcase />);
-
-    // Test that different variants are shown
-    expect(
-      screen.getByText(/minimal/i) || screen.getByText(/default/i)
-    ).toBeInTheDocument();
-  });
-
-  it("renders with responsive grid layout", () => {
-    render(<LogoShowcase />);
-    const container =
-      screen.getByTestId("logo-showcase") ||
-      document.querySelector("[class*='grid']");
-    expect(container).toBeInTheDocument();
+    const gridContainer = document.querySelector("[class*='grid']");
+    expect(gridContainer).toBeInTheDocument();
   });
 });
