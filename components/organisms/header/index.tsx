@@ -12,6 +12,9 @@ import { useTheme } from "@/contexts/ThemeContext";
 export const Header: React.FC<HeaderProps> = ({ className }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSelector, setActiveSelector] = useState<
+    "theme" | "language" | null
+  >(null);
   const { t } = useLanguage();
   const { theme } = useTheme();
 
@@ -25,6 +28,15 @@ export const Header: React.FC<HeaderProps> = ({ className }) => {
 
   const toggleMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
+    setActiveSelector(null); // Reset selector when toggling menu
+  };
+
+  const handleSelectorOpen = (selector: "theme" | "language") => {
+    setActiveSelector(selector);
+  };
+
+  const handleSelectorClose = () => {
+    setActiveSelector(null);
   };
 
   const headerClasses = `sticky top-0 z-50 transition-all duration-300 backdrop-blur-sm ${
@@ -40,7 +52,7 @@ export const Header: React.FC<HeaderProps> = ({ className }) => {
         borderColor: `var(--color-border)`,
       }}
     >
-      <div className="container mx-auto px-4 sm:px-6 py-4">
+      <div className="container mx-auto px-2 sm:px-4 lg:px-6 py-3 sm:py-4">
         <div className="flex items-center justify-between">
           <Link href="#" className="flex items-center">
             <AdnrTechLogo
@@ -58,11 +70,11 @@ export const Header: React.FC<HeaderProps> = ({ className }) => {
                   ? "#FFFFFF"
                   : "#E5E7EB"
               }
-              className="flex-shrink-0"
+              className="flex-shrink-0 sm:w-[320px] sm:h-[90px]"
             />
           </Link>
 
-          <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8">
+          <nav className="hidden lg:flex items-center space-x-4 xl:space-x-6">
             <Link
               href="#about"
               className="nav-link text-base xl:text-lg"
@@ -93,7 +105,7 @@ export const Header: React.FC<HeaderProps> = ({ className }) => {
             </Link>
           </nav>
 
-          <div className="hidden lg:flex items-center space-x-3 xl:space-x-4">
+          <div className="hidden lg:flex items-center space-x-2 xl:space-x-3">
             <ThemeSelector />
             <LanguageSelector />
           </div>
@@ -142,48 +154,107 @@ export const Header: React.FC<HeaderProps> = ({ className }) => {
 
       {/* Mobile Menu */}
       <div
-        className={`lg:hidden transition-all duration-300 ease-in-out overflow-hidden ${
-          isMobileMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+        className={`lg:hidden transition-all duration-300 ease-in-out ${
+          isMobileMenuOpen ? "opacity-100" : "max-h-0 opacity-0 overflow-hidden"
         }`}
         style={{ backgroundColor: "var(--color-background-secondary)" }}
       >
-        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-          <Link
-            href="#about"
-            onClick={toggleMenu}
-            className="block px-3 py-2 rounded-md text-base font-medium"
-            style={{ color: `var(--color-text-secondary)` }}
+        <div
+          className={`px-2 sm:px-4 pt-3 sm:pt-4 pb-4 sm:pb-6 space-y-2 sm:space-y-3 ${
+            activeSelector ? "pb-12 sm:pb-16" : ""
+          }`}
+        >
+          {/* Navigation Links - Only show when no selector is active */}
+          {!activeSelector && (
+            <>
+              <Link
+                href="#about"
+                onClick={toggleMenu}
+                className="block px-2 sm:px-3 py-2 sm:py-3 rounded-md text-sm sm:text-base font-medium hover:bg-bg-tertiary transition-colors"
+                style={{ color: `var(--color-text-secondary)` }}
+              >
+                {t("navigation.about")}
+              </Link>
+              <Link
+                href="#skills"
+                onClick={toggleMenu}
+                className="block px-2 sm:px-3 py-2 sm:py-3 rounded-md text-sm sm:text-base font-medium hover:bg-bg-tertiary transition-colors"
+                style={{ color: `var(--color-text-secondary)` }}
+              >
+                {t("navigation.skills")}
+              </Link>
+              <Link
+                href="#projects"
+                onClick={toggleMenu}
+                className="block px-2 sm:px-3 py-2 sm:py-3 rounded-md text-sm sm:text-base font-medium hover:bg-bg-tertiary transition-colors"
+                style={{ color: `var(--color-text-secondary)` }}
+              >
+                {t("navigation.projects")}
+              </Link>
+              <Link
+                href="#contact"
+                onClick={toggleMenu}
+                className="block px-2 sm:px-3 py-2 sm:py-3 rounded-md text-sm sm:text-base font-medium hover:bg-bg-tertiary transition-colors"
+                style={{ color: `var(--color-text-secondary)` }}
+              >
+                {t("navigation.contact")}
+              </Link>
+            </>
+          )}
+
+          {/* Selectors Section */}
+          <div
+            className="px-2 sm:px-3 py-3 sm:py-4 border-t"
+            style={{ borderColor: `var(--color-border)` }}
           >
-            {t("navigation.about")}
-          </Link>
-          <Link
-            href="#skills"
-            onClick={toggleMenu}
-            className="block px-3 py-2 rounded-md text-base font-medium"
-            style={{ color: `var(--color-text-secondary)` }}
-          >
-            {t("navigation.skills")}
-          </Link>
-          <Link
-            href="#projects"
-            onClick={toggleMenu}
-            className="block px-3 py-2 rounded-md text-base font-medium"
-            style={{ color: `var(--color-text-secondary)` }}
-          >
-            {t("navigation.projects")}
-          </Link>
-          <Link
-            href="#contact"
-            onClick={toggleMenu}
-            className="block px-3 py-2 rounded-md text-base font-medium"
-            style={{ color: `var(--color-text-secondary)` }}
-          >
-            {t("navigation.contact")}
-          </Link>
-          <div className="px-3 py-2 border-t border-border">
-            <div className="flex items-center space-x-4">
-              <ThemeSelector />
-              <LanguageSelector />
+            {/* Back button when selector is active */}
+            {activeSelector && (
+              <button
+                onClick={handleSelectorClose}
+                className="flex items-center mb-4 text-sm font-medium hover:opacity-80 transition-opacity"
+                style={{ color: `var(--color-text-secondary)` }}
+              >
+                <svg
+                  className="w-4 h-4 mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M15 19l-7-7 7-7"
+                  />
+                </svg>
+                {activeSelector === "theme"
+                  ? t("themes.chooseTheme")
+                  : "Escolher Idioma"}
+              </button>
+            )}
+
+            <div className="space-y-3 sm:space-y-4">
+              {/* Theme Selector - Only show when theme is active or no selector is active */}
+              {(activeSelector === "theme" || !activeSelector) && (
+                <div className="relative z-50">
+                  <ThemeSelector
+                    onOpen={() => handleSelectorOpen("theme")}
+                    onClose={handleSelectorClose}
+                    isActive={activeSelector === "theme"}
+                  />
+                </div>
+              )}
+
+              {/* Language Selector - Only show when language is active or no selector is active */}
+              {(activeSelector === "language" || !activeSelector) && (
+                <div className="relative z-50">
+                  <LanguageSelector
+                    onOpen={() => handleSelectorOpen("language")}
+                    onClose={handleSelectorClose}
+                    isActive={activeSelector === "language"}
+                  />
+                </div>
+              )}
             </div>
           </div>
         </div>
