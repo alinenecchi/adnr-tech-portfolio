@@ -148,9 +148,9 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ className }) => {
           </h3>
 
           <div className="space-y-6">
-            {experiences.map((exp, index) => (
+            {experiences.map((exp) => (
               <div
-                key={index}
+                key={`${exp.period}-${exp.company}`}
                 className="relative pl-6"
                 style={{ borderLeft: `2px solid var(--color-accent-primary)` }}
               >
@@ -201,10 +201,10 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ className }) => {
         </h3>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {values.map((value, index) => {
+          {values.map((value) => {
             const Icon = value.icon;
             return (
-              <div key={index} className="text-center space-y-4">
+              <div key={value.title} className="text-center space-y-4">
                 <div
                   className="mx-auto w-12 h-12 rounded-full flex items-center justify-center"
                   style={{
