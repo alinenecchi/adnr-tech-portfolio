@@ -121,6 +121,11 @@
     "softSkillsText": "Comunicação, Trabalho em equipe, Liderança",
     "languagesText": "Português (Nativo), Inglês (Intermediário)",
     "tools": "Principais ferramentas:",
+    "levels": {
+      "advanced": "Avançado",
+      "intermediate": "Intermediário",
+      "beginner": "Iniciante"
+    },
     "categories": {
       "frontend": "Frontend",
       "backend": "Backend",
@@ -129,12 +134,6 @@
       "mobile": "Mobile",
       "design": "Design & UX",
       "cloud": "Cloud & DevOps"
-    },
-    "levels": {
-      "expert": "Especialista",
-      "advanced": "Avançado",
-      "intermediate": "Intermediário",
-      "beginner": "Iniciante"
     }
   },
   "data": {

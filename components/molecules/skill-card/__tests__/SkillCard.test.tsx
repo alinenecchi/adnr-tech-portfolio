@@ -19,14 +19,14 @@ const renderWithProviders = (ui: React.ReactElement) => {
 const mockSkill = {
   title: "Frontend",
   icon: Code,
-  level: "Avançado" as const,
+  level: "advanced" as const,
   tools: ["React", "TypeScript", "Next.js"],
 };
 
 const mockDesignSkill = {
   title: "Design",
   icon: Palette,
-  level: "Intermediário" as const,
+  level: "intermediate" as const,
   tools: ["Figma", "Adobe XD"],
 };
 
@@ -38,7 +38,7 @@ describe("SkillCard Component", () => {
 
   it("renders skill level correctly", () => {
     renderWithProviders(<SkillCard {...mockSkill} />);
-    expect(screen.getByText("Avançado")).toBeInTheDocument();
+    expect(screen.getByText("Avançado")).toBeInTheDocument(); // Portuguese translation for "advanced"
   });
 
   it("renders all tools correctly", () => {
@@ -57,22 +57,22 @@ describe("SkillCard Component", () => {
     expect(icon).toBeInTheDocument();
   });
 
-  it("applies correct level styling for Avançado", () => {
+  it("applies correct level styling for advanced", () => {
     renderWithProviders(<SkillCard {...mockSkill} />);
-    const levelBadge = screen.getByText("Avançado");
+    const levelBadge = screen.getByText("Avançado"); // Portuguese translation
     expect(levelBadge).toHaveClass("bg-green-100", "text-green-800");
   });
 
-  it("applies correct level styling for Intermediário", () => {
+  it("applies correct level styling for intermediate", () => {
     renderWithProviders(<SkillCard {...mockDesignSkill} />);
-    const levelBadge = screen.getByText("Intermediário");
+    const levelBadge = screen.getByText("Intermediário"); // Portuguese translation
     expect(levelBadge).toHaveClass("bg-blue-100", "text-blue-800");
   });
 
-  it("applies correct level styling for Iniciante", () => {
-    const beginnerSkill = { ...mockSkill, level: "Iniciante" as const };
+  it("applies correct level styling for beginner", () => {
+    const beginnerSkill = { ...mockSkill, level: "beginner" as const };
     renderWithProviders(<SkillCard {...beginnerSkill} />);
-    const levelBadge = screen.getByText("Iniciante");
+    const levelBadge = screen.getByText("Iniciante"); // Portuguese translation
     expect(levelBadge).toHaveClass("bg-yellow-100", "text-yellow-800");
   });
 
@@ -96,7 +96,7 @@ describe("SkillCard Component", () => {
     const skillWithoutTools = { ...mockSkill, tools: [] };
     renderWithProviders(<SkillCard {...skillWithoutTools} />);
     expect(screen.getByText("Frontend")).toBeInTheDocument();
-    expect(screen.getByText("Avançado")).toBeInTheDocument();
+    expect(screen.getByText("Avançado")).toBeInTheDocument(); // Portuguese translation
     // Should not render any tool badges
     expect(screen.queryByText("React")).not.toBeInTheDocument();
   });
@@ -106,7 +106,7 @@ describe("SkillCard Component", () => {
 
     // Check if the main elements are present
     expect(screen.getByText("Frontend")).toBeInTheDocument();
-    expect(screen.getByText("Avançado")).toBeInTheDocument();
+    expect(screen.getByText("Avançado")).toBeInTheDocument(); // Portuguese translation
 
     // Check if tools are rendered as badges
     const reactBadge = screen.getByText("React");
@@ -114,12 +114,16 @@ describe("SkillCard Component", () => {
   });
 
   it("renders all skill levels correctly", () => {
-    const levels = ["Iniciante", "Intermediário", "Avançado"] as const;
+    const levels = [
+      { key: "beginner", text: "Iniciante" },
+      { key: "intermediate", text: "Intermediário" }, 
+      { key: "advanced", text: "Avançado" }
+    ];
 
-    levels.forEach((level) => {
-      const skill = { ...mockSkill, level };
+    levels.forEach(({ key, text }) => {
+      const skill = { ...mockSkill, level: key as const };
       const { unmount } = renderWithProviders(<SkillCard {...skill} />);
-      expect(screen.getByText(level)).toBeInTheDocument();
+      expect(screen.getByText(text)).toBeInTheDocument(); // Check Portuguese translation
       unmount();
     });
   });

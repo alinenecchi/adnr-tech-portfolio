@@ -121,6 +121,11 @@
     "softSkillsText": "Communication, Teamwork, Leadership",
     "languagesText": "Portuguese (Native), English (Intermediate)",
     "tools": "Main tools:",
+    "levels": {
+      "advanced": "Advanced",
+      "intermediate": "Intermediate",
+      "beginner": "Beginner"
+    },
     "categories": {
       "frontend": "Frontend",
       "backend": "Backend",
@@ -129,12 +134,6 @@
       "mobile": "Mobile",
       "design": "Design & UX",
       "cloud": "Cloud & DevOps"
-    },
-    "levels": {
-      "expert": "Expert",
-      "advanced": "Advanced",
-      "intermediate": "Intermediate",
-      "beginner": "Beginner"
     }
   },
   "data": {

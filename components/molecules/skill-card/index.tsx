@@ -7,9 +7,9 @@ import { useTheme } from "@/contexts/ThemeContext";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const levelColors = {
-  Iniciante: "bg-yellow-100 text-yellow-800",
-  Intermediário: "bg-blue-100 text-blue-800",
-  Avançado: "bg-green-100 text-green-800",
+  beginner: "bg-yellow-100 text-yellow-800",
+  intermediate: "bg-blue-100 text-blue-800",
+  advanced: "bg-green-100 text-green-800",
 };
 
 export const SkillCard: React.FC<SkillCardProps> = ({
@@ -55,7 +55,7 @@ export const SkillCard: React.FC<SkillCardProps> = ({
             levelColors[level]
           )}
         >
-          {level}
+          {t(`skills.levels.${level}`)}
         </span>
       </div>
 

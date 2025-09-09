@@ -23,8 +23,7 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ className }) => {
     {
       title: t("skills.categories.frontend"),
       icon: Code,
-      level: "Avançado" as const,
-      levelText: t("skills.levels.advanced"),
+      level: "advanced" as const,
       tools: [
         "React",
         "Next.js",
@@ -37,36 +36,31 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ className }) => {
     {
       title: t("skills.categories.backend"),
       icon: Server,
-      level: "Intermediário" as const,
-      levelText: t("skills.levels.intermediate"),
+      level: "intermediate" as const,
       tools: ["Node.js", "Express", "REST APIs", "GraphQL", "Python"],
     },
     {
       title: t("skills.categories.cloud"),
       icon: Cloud,
-      level: "Intermediário" as const,
-      levelText: t("skills.levels.intermediate"),
+      level: "intermediate" as const,
       tools: ["AWS", "Docker", "CI/CD", "Vercel", "Netlify"],
     },
     {
       title: t("skills.categories.database"),
       icon: Database,
-      level: "Intermediário" as const,
-      levelText: t("skills.levels.intermediate"),
+      level: "intermediate" as const,
       tools: ["PostgreSQL", "MongoDB", "Redis", "Prisma", "Supabase"],
     },
     {
       title: t("skills.categories.mobile"),
       icon: Smartphone,
-      level: "Intermediário" as const,
-      levelText: t("skills.levels.intermediate"),
+      level: "intermediate" as const,
       tools: ["React Native", "Expo", "Mobile UI/UX", "Native APIs"],
     },
     {
       title: t("skills.categories.design"),
       icon: Palette,
-      level: "Intermediário" as const,
-      levelText: t("skills.levels.intermediate"),
+      level: "intermediate" as const,
       tools: ["Figma", "Adobe XD", "Design Systems", "Acessibilidade"],
     },
   ];
