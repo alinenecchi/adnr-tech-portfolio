@@ -8,7 +8,7 @@ export const getLanguageSelectorStyles = () => {
       "text-sm font-medium text-text-primary transition-colors duration-300",
     icon: "w-4 h-4",
     dropdown:
-      "absolute right-0 mt-2 w-48 bg-card-bg rounded-lg shadow-lg border border-card-border z-[100] transition-colors duration-300 max-h-80 overflow-y-auto",
+      "absolute right-0 mt-2 w-48 bg-card-bg rounded-lg shadow-lg border border-card-border z-[100]",
     mobileDropdown:
       "relative mt-2 bg-card-bg rounded-lg shadow-lg border border-card-border z-[100] transition-all duration-300 transform scale-y-0 origin-top lg:hidden opacity-0",
     mobileDropdownOpen: "scale-y-100 opacity-100",

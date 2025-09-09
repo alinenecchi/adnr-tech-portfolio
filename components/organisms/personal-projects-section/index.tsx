@@ -171,11 +171,12 @@ export const PersonalProjectsSection: React.FC<
                           )}
                           style={{
                             backgroundColor: `var(--color-accent-primary)`,
+                            borderColor: `var(--color-accent-primary)`,
                             color:
-                              theme === "classic-modern" ||
-                              theme === "tech-futuristic"
-                                ? "var(--color-background-primary)" // Dark text for light accent colors
-                                : "var(--color-text-on-primary)", // White text for dark accent colors
+                              theme !== "elegant-corporate"
+                                ? "var(--color-text-on-primary)"
+                                : "var(--color-text-primary)", // Dark text for light accent colors
+                            // White text for dark accent colors
                           }}
                         >
                           <ExternalLink className="w-4 h-4" />
@@ -193,7 +194,6 @@ export const PersonalProjectsSection: React.FC<
                             style={{
                               backgroundColor: "transparent",
                               borderColor: `var(--color-accent-primary)`,
-                              color: `var(--color-accent-primary)`,
                             }}
                           >
                             <Github className="w-4 h-4" />

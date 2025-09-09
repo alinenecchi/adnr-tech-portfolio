@@ -9,12 +9,14 @@ import { TechBadge } from "@/components/atoms/tech-badge";
 import { Button } from "@/components/atoms/button";
 import { ArrowDown, Download } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useTheme } from "@/contexts/ThemeContext";
 
 export const HeroSection: React.FC<HeroSectionProps> = ({
   className,
   isDarkMode,
 }) => {
   const { t } = useLanguage();
+  const { theme } = useTheme();
   const [heroRef, inView] = useIntersectionObserver({ threshold: 0.1 });
 
   const mainTechs = [
@@ -91,29 +93,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button
-                size="lg"
-                className="group"
-                style={{
-                  backgroundColor: `var(--color-accent-primary)`,
-                  color: isDarkMode
-                    ? "var(--color-background-primary)" // Dark text for light accent colors in dark themes
-                    : "var(--color-text-on-primary)", // White text for dark accent colors in light themes
-                }}
-              >
+              <Button size="lg" className="group">
                 <Link href="#projects" className="flex items-center">
                   {t("hero.viewProjects")}
                   <ArrowDown className="ml-2 h-4 w-4 group-hover:translate-y-1 transition-transform" />
                 </Link>
               </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                style={{
-                  borderColor: `var(--color-accent-primary)`,
-                  color: `var(--color-accent-primary)`, // Same color as border for consistency
-                }}
-              >
+              <Button variant="outline" size="lg">
                 <Link href="#contact" className="flex items-center">
                   <Download className="mr-2 h-4 w-4" />
                   {t("data.about.resumeButton")}

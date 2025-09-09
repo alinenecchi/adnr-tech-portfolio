@@ -90,17 +90,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         {/* Actions */}
         <div className="flex flex-col sm:flex-row gap-2">
           {demoUrl && (
-            <Button
-              asChild
-              className="flex-1"
-              style={{
-                backgroundColor: `var(--color-accent-primary)`,
-                color:
-                  theme === "classic-modern" || theme === "tech-futuristic"
-                    ? "var(--color-background-primary)" // Dark background for light accent colors
-                    : "var(--color-text-on-primary)", // White text for dark accent colors
-              }}
-            >
+            <Button asChild className="flex-1">
               <a
                 href={demoUrl}
                 target="_blank"
@@ -113,16 +103,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
             </Button>
           )}
           {githubUrl && (
-            <Button
-              variant="outline"
-              asChild
-              className="flex-1"
-              style={{
-                borderColor: `var(--color-accent-primary)`,
-                color: `var(--color-accent-primary)`, // Same color as border for consistency
-                backgroundColor: "transparent",
-              }}
-            >
+            <Button variant="outline" asChild className="flex-1">
               <a
                 href={githubUrl}
                 target="_blank"

@@ -43,12 +43,14 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
     };
   }, []);
 
-  // Sync isOpen with isActive for mobile
+  // Sync isOpen with isActive for mobile only
   useEffect(() => {
-    if (isActive) {
-      setIsOpen(true);
-    } else {
-      setIsOpen(false);
+    if (window.innerWidth < 1024) {
+      if (isActive) {
+        setIsOpen(true);
+      } else {
+        setIsOpen(false);
+      }
     }
   }, [isActive]);
 
@@ -58,8 +60,10 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
     <div className={cn(styles.container, className)} ref={dropdownRef}>
       <button
         onClick={() => {
-          if (!isActive) {
+          if (window.innerWidth < 1024 && isActive) {
             onOpen?.();
+          } else {
+            setIsOpen(!isOpen);
           }
         }}
         className={styles.button}

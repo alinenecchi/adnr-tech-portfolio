@@ -106,8 +106,16 @@ export const Header: React.FC<HeaderProps> = ({ className }) => {
           </nav>
 
           <div className="hidden lg:flex items-center space-x-2 xl:space-x-3">
-            <ThemeSelector />
-            <LanguageSelector />
+            <ThemeSelector
+              onOpen={() => {}}
+              onClose={() => {}}
+              isActive={false}
+            />
+            <LanguageSelector
+              onOpen={() => {}}
+              onClose={() => {}}
+              isActive={false}
+            />
           </div>
 
           <div className="lg:hidden flex items-center space-x-2">

@@ -187,7 +187,10 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
             <h3
               className="font-semibold mb-2"
               style={{
-                color: `var(--color-text-primary)`,
+                color:
+                  theme === "clean-minimal"
+                    ? "var(--color-background-primary)" // Dark text for light accent colors
+                    : "var(--color-text-on-primary)", // White text for dark accent colors
               }}
             >
               {t("contact.ctaTitle")}
@@ -195,7 +198,10 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
             <p
               className="text-sm mb-4"
               style={{
-                color: `var(--color-text-primary)`,
+                color:
+                  theme === "clean-minimal"
+                    ? "var(--color-background-primary)" // Dark text for light accent colors
+                    : "var(--color-text-on-primary)", // White text for dark accent colors
               }}
             >
               {t("contact.ctaDescription")}
@@ -204,9 +210,10 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
               asChild
               variant="outline"
               style={{
-                backgroundColor: `var(--color-background-secondary)`,
-                borderColor: `var(--color-accent-primary)`,
-                color: `var(--color-text-primary)`,
+                color:
+                  theme === "clean-minimal"
+                    ? "var(--color-background-primary)" // Dark text for light accent colors
+                    : "var(--color-text-on-primary)", // White text for dark accent colors
               }}
             >
               <a

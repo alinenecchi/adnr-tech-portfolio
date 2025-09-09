@@ -50,12 +50,18 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
           <div className="md:col-span-1 flex">
             <div className="flex-1">
               <ProjectCard
-              title={
-                getTranslatedProject(projects.find((p) => p.id === "8") || projects[7], t).title
-              }
-              description={
-                getTranslatedProject(projects.find((p) => p.id === "8") || projects[7], t).description
-              }
+                title={
+                  getTranslatedProject(
+                    projects.find((p) => p.id === "8") || projects[7],
+                    t
+                  ).title
+                }
+                description={
+                  getTranslatedProject(
+                    projects.find((p) => p.id === "8") || projects[7],
+                    t
+                  ).description
+                }
                 image={
                   projects.find((p) => p.id === "8")?.image ||
                   "https://images.unsplash.com/photo-1645520718652-9342896b0eec?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzdXN0YWluYWJsZSUyMHJlY3ljbGluZyUyMGFwcHxlbnwxfHx8fDE3NTczNjYxNjJ8MA&ixlib=rb-4.1.0&q=80&w=1080"
