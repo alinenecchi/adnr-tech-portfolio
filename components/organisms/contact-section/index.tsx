@@ -7,13 +7,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useTheme } from "@/contexts/ThemeContext";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import { Button } from "@/components/atoms/button";
-import {
-  Mail,
-  MessageCircle,
-  Github,
-  Linkedin,
-  MapPin,
-} from "lucide-react";
+import { Mail, MessageCircle, Github, Linkedin, MapPin } from "lucide-react";
 
 export const ContactSection: React.FC<ContactSectionProps> = ({
   className,
