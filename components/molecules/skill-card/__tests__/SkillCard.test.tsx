@@ -71,24 +71,30 @@ describe("SkillCard Component", () => {
 
   it("applies correct level styling for Iniciante", () => {
     const beginnerSkill = { ...mockSkill, level: "Iniciante" as const };
-    render(<SkillCard {...beginnerSkill} />);
+    renderWithProviders(<SkillCard {...beginnerSkill} />);
     const levelBadge = screen.getByText("Iniciante");
     expect(levelBadge).toHaveClass("bg-yellow-100", "text-yellow-800");
   });
 
   it("renders different icons for different skills", () => {
-    const { rerender } = render(<SkillCard {...mockSkill} />);
+    const { rerender } = renderWithProviders(<SkillCard {...mockSkill} />);
     let icon = screen.getByText("Frontend").parentElement?.querySelector("svg");
     expect(icon).toBeInTheDocument();
 
-    rerender(<SkillCard {...mockDesignSkill} />);
+    rerender(
+      <LanguageProvider>
+        <ThemeProvider>
+          <SkillCard {...mockDesignSkill} />
+        </ThemeProvider>
+      </LanguageProvider>
+    );
     icon = screen.getByText("Design").parentElement?.querySelector("svg");
     expect(icon).toBeInTheDocument();
   });
 
   it("handles empty tools array", () => {
     const skillWithoutTools = { ...mockSkill, tools: [] };
-    render(<SkillCard {...skillWithoutTools} />);
+    renderWithProviders(<SkillCard {...skillWithoutTools} />);
     expect(screen.getByText("Frontend")).toBeInTheDocument();
     expect(screen.getByText("Avançado")).toBeInTheDocument();
     // Should not render any tool badges
@@ -112,7 +118,7 @@ describe("SkillCard Component", () => {
 
     levels.forEach((level) => {
       const skill = { ...mockSkill, level };
-      const { unmount } = render(<SkillCard {...skill} />);
+      const { unmount } = renderWithProviders(<SkillCard {...skill} />);
       expect(screen.getByText(level)).toBeInTheDocument();
       unmount();
     });
