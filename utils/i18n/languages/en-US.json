@@ -24,6 +24,38 @@
     "moreProjects": "Want to see more projects?",
     "visitGitHub": "Visit my GitHub"
   },
+  "personalProjects": {
+    "title": "Personal Projects",
+    "subtitle": "Projects created for study, college work, and personal experimentation",
+    "categories": {
+      "study": "Study",
+      "college": "College",
+      "personal": "Personal"
+    },
+    "filters": {
+      "all": "All",
+      "personal": "Personal",
+      "college": "College",
+      "study": "Study"
+    },
+    "actions": {
+      "viewLive": "View Live",
+      "viewCode": "View Code"
+    },
+    "stats": {
+      "totalProjects": "Total Projects",
+      "personalProjects": "Personal Projects",
+      "collegeProjects": "College Projects"
+    },
+    "aiInterview": {
+      "description": "Intelligent interview assistant with real-time transcription, translation, and response suggestions using AI.",
+      "longDescription": "Advanced tool that uses Google Gemini AI to process conversations in real-time, offering automatic transcription, language translation, and intelligent response suggestions during interviews."
+    },
+    "schoolsCalendar": {
+      "description": "School calendar system developed to validate web programming knowledge during the semester.",
+      "longDescription": "Responsive web application for school calendar management, developed as a college project to demonstrate frontend development and UX/UI competencies."
+    }
+  },
   "contact": {
     "title": "Let's Talk?",
     "description": "Have a project in mind? Get in touch and let's create something amazing together!",

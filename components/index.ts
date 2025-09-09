@@ -33,6 +33,7 @@ export { Header } from "./organisms/header";
 export { HeroSection } from "./organisms/hero-section";
 export { AboutSection } from "./organisms/about-section";
 export { ProjectsSection } from "./organisms/projects-section";
+export { PersonalProjectsSection } from "./organisms/personal-projects-section";
 export { SkillsSection } from "./organisms/skills-section";
 export { ContactSection } from "./organisms/contact-section";
 export { Footer } from "./organisms/footer";

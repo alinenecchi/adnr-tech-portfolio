@@ -24,6 +24,38 @@
     "moreProjects": "¿Quieres ver más proyectos?",
     "visitGitHub": "Visita mi GitHub"
   },
+  "personalProjects": {
+    "title": "Proyectos Personales",
+    "subtitle": "Proyectos creados para estudio, trabajos universitarios y experimentación personal",
+    "categories": {
+      "study": "Estudio",
+      "college": "Universidad",
+      "personal": "Personal"
+    },
+    "filters": {
+      "all": "Todos",
+      "personal": "Personales",
+      "college": "Universidad",
+      "study": "Estudio"
+    },
+    "actions": {
+      "viewLive": "Ver Online",
+      "viewCode": "Ver Código"
+    },
+    "stats": {
+      "totalProjects": "Proyectos Totales",
+      "personalProjects": "Proyectos Personales",
+      "collegeProjects": "Proyectos Universitarios"
+    },
+    "aiInterview": {
+      "description": "Asistente inteligente de entrevistas con transcripción en tiempo real, traducción y sugerencias de respuesta usando IA.",
+      "longDescription": "Herramienta avanzada que utiliza Google Gemini AI para procesar conversaciones en tiempo real, ofreciendo transcripción automática, traducción entre idiomas y sugerencias inteligentes de respuesta durante entrevistas."
+    },
+    "schoolsCalendar": {
+      "description": "Sistema de calendario escolar desarrollado para validar conocimientos de programación web durante el semestre.",
+      "longDescription": "Aplicación web responsiva para gestión de calendario escolar, desarrollada como proyecto universitario para demostrar competencias en desarrollo frontend y UX/UI."
+    }
+  },
   "contact": {
     "title": "¿Hablemos?",
     "description": "¿Tienes un proyecto en mente? ¡Ponte en contacto y creemos algo increíble juntos!",

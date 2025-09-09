@@ -6,6 +6,7 @@ import {
   HeroSection,
   AboutSection,
   ProjectsSection,
+  PersonalProjectsSection,
   SkillsSection,
   ContactSection,
   Footer,
@@ -45,6 +46,7 @@ export default function Home() {
         <GridSection title={t("pages.home.projectsTitle")} id="projects">
           <ProjectsSection />
         </GridSection>
+        <PersonalProjectsSection />
         <GridSection title={t("pages.home.contactTitle")} id="contact">
           <ContactSection />
         </GridSection>
