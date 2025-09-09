@@ -77,9 +77,9 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ className }) => {
       </div>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {skillCategories.map((skill, index) => (
+        {skillCategories.map((skill) => (
           <SkillCard
-            key={index}
+            key={skill.title}
             title={skill.title}
             icon={skill.icon}
             level={skill.level}
