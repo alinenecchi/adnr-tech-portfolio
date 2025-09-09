@@ -64,7 +64,7 @@ describe("SkillCard Component", () => {
   });
 
   it("applies correct level styling for Intermediário", () => {
-    render(<SkillCard {...mockDesignSkill} />);
+    renderWithProviders(<SkillCard {...mockDesignSkill} />);
     const levelBadge = screen.getByText("Intermediário");
     expect(levelBadge).toHaveClass("bg-blue-100", "text-blue-800");
   });
