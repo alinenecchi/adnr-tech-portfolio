@@ -55,6 +55,7 @@ export const PersonalProjectsSection: React.FC<
         "Responsive Design",
       ],
       liveUrl: "https://schools-calendar.vercel.app/",
+      githubUrl: "https://github.com/alinenecchi/schoolsCalendar",
       category: "college",
       featured: true,
       year: "2023",
@@ -170,7 +171,10 @@ export const PersonalProjectsSection: React.FC<
                           )}
                           style={{
                             backgroundColor: `var(--color-accent-primary)`,
-                            color: "white",
+                            color:
+                              theme === "classic-modern" || theme === "tech-futuristic"
+                                ? "var(--color-background-primary)" // Dark text for light accent colors
+                                : "var(--color-text-on-primary)", // White text for dark accent colors
                           }}
                         >
                           <ExternalLink className="w-4 h-4" />
@@ -186,8 +190,9 @@ export const PersonalProjectsSection: React.FC<
                               styles.secondaryButton
                             )}
                             style={{
-                              borderColor: `var(--color-border)`,
-                              color: `var(--color-text-primary)`,
+                              backgroundColor: "transparent",
+                              borderColor: `var(--color-accent-primary)`,
+                              color: `var(--color-accent-primary)`,
                             }}
                           >
                             <Github className="w-4 h-4" />
@@ -211,8 +216,8 @@ export const PersonalProjectsSection: React.FC<
                 disabled={currentIndex === 0}
                 style={{
                   backgroundColor: `var(--color-background-primary)`,
-                  color: `var(--color-text-primary)`,
-                  borderColor: `var(--color-border)`,
+                  color: `var(--color-accent-primary)`,
+                  borderColor: `var(--color-accent-primary)`,
                 }}
               >
                 <ChevronLeft className="w-6 h-6" />
@@ -243,8 +248,8 @@ export const PersonalProjectsSection: React.FC<
                 disabled={currentIndex === maxIndex}
                 style={{
                   backgroundColor: `var(--color-background-primary)`,
-                  color: `var(--color-text-primary)`,
-                  borderColor: `var(--color-border)`,
+                  color: `var(--color-accent-primary)`,
+                  borderColor: `var(--color-accent-primary)`,
                 }}
               >
                 <ChevronRight className="w-6 h-6" />
