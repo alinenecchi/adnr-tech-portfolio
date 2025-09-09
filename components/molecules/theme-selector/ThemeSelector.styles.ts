@@ -1,11 +1,11 @@
 export const getThemeSelectorStyles = () => {
   return {
-    container: "relative inline-block w-full lg:w-auto",
+    container: "relative inline-block w-full lg:w-auto overflow-visible",
     button:
       "flex items-center space-x-2 px-3 py-2 rounded-lg border border-border bg-card-bg hover:bg-bg-secondary transition-colors duration-200 w-full lg:w-auto",
     icon: "w-4 h-4",
     dropdown:
-      "absolute right-0 mt-2 w-64 bg-card-bg rounded-lg shadow-lg border border-card-border z-[100] lg:block",
+      "absolute right-0 mt-2 w-64 bg-card-bg rounded-lg shadow-lg border border-card-border z-[9999]",
     mobileDropdown:
       "relative mt-2 bg-card-bg rounded-lg shadow-lg border border-card-border z-[100] transition-all duration-300 transform scale-y-0 origin-top lg:hidden opacity-0",
     mobileDropdownOpen: "scale-y-100 opacity-100",

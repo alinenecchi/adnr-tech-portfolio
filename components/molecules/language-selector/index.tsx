@@ -15,14 +15,26 @@ const languages = [
 
 export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
   className,
-  onOpen,
   onClose,
-  isActive = false,
+  onOpen,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const { language, setLanguage } = useLanguage();
   const styles = getLanguageSelectorStyles();
+
+  // Check if mobile on mount and resize
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -43,28 +55,16 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
     };
   }, []);
 
-  // Sync isOpen with isActive for mobile only
-  useEffect(() => {
-    if (window.innerWidth < 1024) {
-      if (isActive) {
-        setIsOpen(true);
-      } else {
-        setIsOpen(false);
-      }
-    }
-  }, [isActive]);
-
   const currentLanguage = languages.find((lang) => lang.code === language);
 
   return (
     <div className={cn(styles.container, className)} ref={dropdownRef}>
       <button
         onClick={() => {
-          if (window.innerWidth < 1024 && isActive) {
-            onOpen?.();
-          } else {
-            setIsOpen(!isOpen);
+          if (isMobile) {
+            onOpen?.(); // Set active selector to language
           }
+          setIsOpen(!isOpen);
         }}
         className={styles.button}
         aria-label="Selecionar idioma"
@@ -86,98 +86,119 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
         </svg>
       </button>
 
-      {isOpen && (
-        <>
-          {/* Backdrop for mobile */}
-          <div
-            className="fixed inset-0 bg-black bg-opacity-50 z-[99] lg:hidden"
-            onClick={() => {
-              setIsOpen(false);
-              onClose?.();
-            }}
-          />
-
-          {/* Desktop Dropdown */}
-          <div className={cn(styles.dropdown, "hidden lg:block")}>
-            <div className={styles.dropdownHeader}>
-              <h3 className={styles.dropdownTitle}>Escolher Idioma</h3>
-            </div>
-            <div className={styles.dropdownContent}>
-              {languages.map((lang) => (
-                <div
-                  key={lang.code}
-                  onClick={() => {
-                    setLanguage(lang.code);
-                    setIsOpen(false);
-                    onClose?.();
-                  }}
-                  className={cn(
-                    styles.languageOption,
-                    language === lang.code && styles.selected
-                  )}
-                >
-                  <span className={styles.flag}>{lang.flag}</span>
-                  <span className={styles.language}>{lang.name}</span>
-                  {language === lang.code && (
-                    <svg
-                      className={styles.selectedIcon}
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  )}
-                </div>
-              ))}
-            </div>
+      {/* Desktop Dropdown - Standard behavior */}
+      {isOpen && !isMobile && (
+        <div className={styles.dropdown}>
+          <div className={styles.dropdownHeader}>
+            <h3 className={styles.dropdownTitle}>Escolher Idioma</h3>
           </div>
+          <div className={styles.dropdownContent}>
+            {languages.map((lang) => (
+              <div
+                key={lang.code}
+                onClick={() => {
+                  setLanguage(lang.code);
+                  setIsOpen(false);
+                }}
+                className={cn(
+                  styles.languageOption,
+                  language === lang.code && styles.selected
+                )}
+              >
+                <span className={styles.flag}>{lang.flag}</span>
+                <span className={styles.language}>{lang.name}</span>
+                {language === lang.code && (
+                  <svg
+                    className={styles.selectedIcon}
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
-          {/* Mobile Dropdown */}
+      {/* Mobile Dropdown - Full screen with options only */}
+      {isOpen && isMobile && (
+        <>
+          {/* Background overlay */}
           <div
-            className={cn(
-              styles.mobileDropdown,
-              isOpen && styles.mobileDropdownOpen
-            )}
-            style={{ display: isOpen ? "block" : "none" }}
+            className="fixed inset-0 z-[9998]"
+            style={{ backgroundColor: `rgba(0, 0, 0, 0.5)` }}
+          />
+          <div
+            className="fixed inset-0 z-[9999] flex flex-col w-full"
+            style={{ backgroundColor: `var(--color-background-primary)` }}
           >
-            <div className={styles.dropdownHeader}>
-              <h3 className={styles.dropdownTitle}>Escolher Idioma</h3>
+            <div
+              className="p-4 border-b w-full"
+              style={{ borderColor: `var(--color-border)` }}
+            >
+              <h3
+                className="text-lg font-semibold"
+                style={{ color: `var(--color-text-primary)` }}
+              >
+                Escolher Idioma
+              </h3>
             </div>
-            <div className={styles.mobileDropdownContent}>
-              {languages.map((lang) => (
-                <div
-                  key={lang.code}
-                  onClick={() => {
-                    setLanguage(lang.code);
-                    setIsOpen(false);
-                    onClose?.();
-                  }}
-                  className={cn(
-                    styles.languageOption,
-                    language === lang.code && styles.selected
-                  )}
-                >
-                  <span className={styles.flag}>{lang.flag}</span>
-                  <span className={styles.language}>{lang.name}</span>
-                  {language === lang.code && (
-                    <svg
-                      className={styles.selectedIcon}
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
+            <div className="flex-1 p-4 w-full">
+              <div className="space-y-3">
+                {languages.map((lang) => (
+                  <div
+                    key={lang.code}
+                    onClick={() => {
+                      setLanguage(lang.code);
+                      setIsOpen(false);
+                      onClose?.();
+                    }}
+                    className="flex items-center space-x-3 p-3 rounded-lg cursor-pointer transition-colors"
+                    style={{
+                      backgroundColor:
+                        language === lang.code
+                          ? `var(--color-accent-primary)`
+                          : `var(--color-background-secondary)`,
+                      border:
+                        language === lang.code
+                          ? `1px solid var(--color-accent-primary)`
+                          : `1px solid var(--color-border)`,
+                      color:
+                        language === lang.code
+                          ? `var(--color-text-primary)`
+                          : `var(--color-text-primary)`,
+                    }}
+                  >
+                    <span className="text-xl">{lang.flag}</span>
+                    <span
+                      className="text-base font-medium flex-1"
+                      style={{ color: `var(--color-text-primary)` }}
                     >
-                      <path
-                        fillRule="evenodd"
-                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  )}
-                </div>
-              ))}
+                      {lang.name}
+                    </span>
+                    {language === lang.code && (
+                      <svg
+                        className="w-5 h-5"
+                        style={{ color: `var(--color-text-primary)` }}
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    )}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </>

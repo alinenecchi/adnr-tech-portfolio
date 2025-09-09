@@ -39,7 +39,7 @@ export const Header: React.FC<HeaderProps> = ({ className }) => {
     setActiveSelector(null);
   };
 
-  const headerClasses = `sticky top-0 z-50 transition-all duration-300 backdrop-blur-sm ${
+  const headerClasses = `sticky top-0 z-50 transition-all duration-300 backdrop-blur-sm overflow-visible ${
     isScrolled ? "shadow-md" : ""
   }`;
 
@@ -106,16 +106,8 @@ export const Header: React.FC<HeaderProps> = ({ className }) => {
           </nav>
 
           <div className="hidden lg:flex items-center space-x-2 xl:space-x-3">
-            <ThemeSelector
-              onOpen={() => {}}
-              onClose={() => {}}
-              isActive={false}
-            />
-            <LanguageSelector
-              onOpen={() => {}}
-              onClose={() => {}}
-              isActive={false}
-            />
+            <ThemeSelector />
+            <LanguageSelector />
           </div>
 
           <div className="lg:hidden flex items-center space-x-2">
@@ -248,7 +240,6 @@ export const Header: React.FC<HeaderProps> = ({ className }) => {
                   <ThemeSelector
                     onOpen={() => handleSelectorOpen("theme")}
                     onClose={handleSelectorClose}
-                    isActive={activeSelector === "theme"}
                   />
                 </div>
               )}
@@ -259,7 +250,6 @@ export const Header: React.FC<HeaderProps> = ({ className }) => {
                   <LanguageSelector
                     onOpen={() => handleSelectorOpen("language")}
                     onClose={handleSelectorClose}
-                    isActive={activeSelector === "language"}
                   />
                 </div>
               )}

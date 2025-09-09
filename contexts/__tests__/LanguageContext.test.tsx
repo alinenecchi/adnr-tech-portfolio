@@ -129,7 +129,7 @@ describe("LanguageContext", () => {
     );
 
     expect(screen.getByTestId("nested-translation")).toHaveTextContent(
-      "Olá, eu sou"
+      "Portfolio"
     );
   });
 
