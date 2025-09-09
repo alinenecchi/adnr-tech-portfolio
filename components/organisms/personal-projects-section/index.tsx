@@ -172,7 +172,8 @@ export const PersonalProjectsSection: React.FC<
                           style={{
                             backgroundColor: `var(--color-accent-primary)`,
                             color:
-                              theme === "classic-modern" || theme === "tech-futuristic"
+                              theme === "classic-modern" ||
+                              theme === "tech-futuristic"
                                 ? "var(--color-background-primary)" // Dark text for light accent colors
                                 : "var(--color-text-on-primary)", // White text for dark accent colors
                           }}
