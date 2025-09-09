@@ -1,14 +1,20 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
+import "@testing-library/jest-dom";
 import { Code, Palette } from "lucide-react";
 import { SkillCard } from "../index";
+import { LanguageProvider } from "../../../../contexts/LanguageContext";
+import { ThemeProvider } from "../../../../contexts/ThemeContext";
 
-// Mock the theme context
-jest.mock("../../../../contexts/ThemeContext", () => ({
-  useTheme: () => ({
-    theme: "classic-modern",
-  }),
-}));
+const renderWithProviders = (ui: React.ReactElement) => {
+  return render(
+    <LanguageProvider>
+      <ThemeProvider>
+        {ui}
+      </ThemeProvider>
+    </LanguageProvider>
+  );
+};
 
 const mockSkill = {
   title: "Frontend",
@@ -26,24 +32,24 @@ const mockDesignSkill = {
 
 describe("SkillCard Component", () => {
   it("renders skill title correctly", () => {
-    render(<SkillCard {...mockSkill} />);
+    renderWithProviders(<SkillCard {...mockSkill} />);
     expect(screen.getByText("Frontend")).toBeInTheDocument();
   });
 
   it("renders skill level correctly", () => {
-    render(<SkillCard {...mockSkill} />);
+    renderWithProviders(<SkillCard {...mockSkill} />);
     expect(screen.getByText("Avançado")).toBeInTheDocument();
   });
 
   it("renders all tools correctly", () => {
-    render(<SkillCard {...mockSkill} />);
+    renderWithProviders(<SkillCard {...mockSkill} />);
     expect(screen.getByText("React")).toBeInTheDocument();
     expect(screen.getByText("TypeScript")).toBeInTheDocument();
     expect(screen.getByText("Next.js")).toBeInTheDocument();
   });
 
   it("renders icon correctly", () => {
-    render(<SkillCard {...mockSkill} />);
+    renderWithProviders(<SkillCard {...mockSkill} />);
     // The icon should be present (lucide-react icons render as SVG)
     const icon = screen
       .getByText("Frontend")
@@ -52,7 +58,7 @@ describe("SkillCard Component", () => {
   });
 
   it("applies correct level styling for Avançado", () => {
-    render(<SkillCard {...mockSkill} />);
+    renderWithProviders(<SkillCard {...mockSkill} />);
     const levelBadge = screen.getByText("Avançado");
     expect(levelBadge).toHaveClass("bg-green-100", "text-green-800");
   });
@@ -90,7 +96,7 @@ describe("SkillCard Component", () => {
   });
 
   it("has correct base structure", () => {
-    render(<SkillCard {...mockSkill} />);
+    renderWithProviders(<SkillCard {...mockSkill} />);
 
     // Check if the main elements are present
     expect(screen.getByText("Frontend")).toBeInTheDocument();

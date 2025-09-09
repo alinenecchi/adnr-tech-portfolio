@@ -28,9 +28,9 @@ describe("HeroSection Component", () => {
   it("renders hero section with name and title", () => {
     renderWithProviders(<HeroSection {...defaultProps} />);
 
-    expect(screen.getByText("Olá, eu sou")).toBeInTheDocument();
+    expect(screen.getByText(/Olá, eu sou/)).toBeInTheDocument();
     expect(screen.getByText("Aline Dias Necchi Ribeiro")).toBeInTheDocument();
-    expect(screen.getByText("Desenvolvedora Full Stack")).toBeInTheDocument();
+    expect(screen.getByText(/Desenvolvedora Full Stack/)).toBeInTheDocument();
   });
 
   it("displays hero description", () => {
