@@ -1,0 +1,304 @@
+{
+  "navigation": {
+    "home": "Inicio",
+    "about": "Acerca de",
+    "skills": "Habilidades",
+    "projects": "Proyectos",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "greeting": "Hola, soy",
+    "name": "Aline Dias Necchi Ribeiro",
+    "title": "Desarrolladora Full Stack",
+    "description": "Especializada en React, Node.js y desarrollo de aplicaciones web modernas. Transformo ideas en soluciones digitales funcionales y elegantes.",
+    "viewProjects": "Ver Proyectos",
+    "contact": "Ponerse en Contacto"
+  },
+  "about": {
+    "title": "Acerca de Mí",
+    "description": "Desarrolladora apasionada por crear soluciones digitales que marcan la diferencia"
+  },
+  "projects": {
+    "title": "Proyectos Destacados",
+    "description": "Una selección de mis trabajos más recientes e impactantes",
+    "moreProjects": "¿Quieres ver más proyectos?",
+    "visitGitHub": "Visita mi GitHub"
+  },
+  "skills": {
+    "title": "Habilidades Técnicas",
+    "description": "Tecnologías y herramientas que domino para crear soluciones completas",
+    "additionalSkills": "Otras Competencias",
+    "methodologies": "Metodologías",
+    "versioning": "Control de Versiones",
+    "softSkills": "Habilidades Blandas",
+    "languages": "Idiomas",
+    "methodologiesText": "Scrum, Kanban, Clean Code, TDD",
+    "versioningText": "Git, GitHub, GitLab, Git Flow",
+    "softSkillsText": "Comunicación, Trabajo en equipo, Liderazgo",
+    "languagesText": "Portugués (Nativo), Inglés (Intermedio)"
+  },
+  "contact": {
+    "title": "¿Hablemos?",
+    "description": "¿Tienes un proyecto en mente? ¡Ponte en contacto y creemos algo increíble juntos!",
+    "sendMessage": "Enviar un Mensaje",
+    "formDescription": "Completa el formulario a continuación y responderé lo antes posible.",
+    "name": "Nombre completo",
+    "namePlaceholder": "Tu nombre",
+    "email": "E-mail",
+    "emailPlaceholder": "tu@email.com",
+    "message": "Mensaje",
+    "messagePlaceholder": "Cuéntame sobre tu proyecto...",
+    "sendButton": "Enviar Mensaje",
+    "sending": "Enviando...",
+    "contactInfo": "Información de Contacto",
+    "contactDescription": "Otras formas de ponerte en contacto conmigo.",
+    "socialMedia": "Redes Sociales",
+    "socialDescription": "Conéctate conmigo en las redes sociales.",
+    "ctaTitle": "¿Lista para tu próximo proyecto?",
+    "ctaDescription": "Creemos algo increíble juntos. ¡Ponte en contacto y comencemos!"
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados."
+  },
+  "themes": {
+    "chooseTheme": "Elegir Tema",
+    "classicModern": {
+      "name": "Clásica Moderna",
+      "description": "Dark + Neon - Transmite innovación, recuerda dashboards e interfaces modernas"
+    },
+    "cleanMinimal": {
+      "name": "Clean Minimalista",
+      "description": "Light - Da ligereza, facilita la lectura y transmite confiabilidad"
+    },
+    "techFuturistic": {
+      "name": "Tech Futurista",
+      "description": "Gradientes - Transmite modernidad y movimiento, excelente con animaciones"
+    },
+    "elegantCorporate": {
+      "name": "Elegante Corporativo",
+      "description": "Perfecto para mostrar seriedad y sofisticación"
+    }
+  },
+  "projectCard": {
+    "viewDemo": "Ir al Sitio",
+    "viewCode": "Código"
+  },
+  "contactForm": {
+    "name": "Nombre",
+    "namePlaceholder": "Tu nombre completo",
+    "email": "Email",
+    "emailPlaceholder": "tu@email.com",
+    "message": "Mensaje",
+    "messagePlaceholder": "Tu mensaje...",
+    "sendButton": "Enviar Mensaje",
+    "sending": "Enviando...",
+    "successMessage": "¡Mensaje enviado con éxito!",
+    "successSubMessage": "Te responderé pronto.",
+    "sendNewMessage": "Enviar nuevo mensaje",
+    "errors": {
+      "nameRequired": "El nombre es obligatorio",
+      "emailRequired": "El email es obligatorio",
+      "emailInvalid": "Email inválido",
+      "messageRequired": "El mensaje es obligatorio"
+    }
+  },
+  "pages": {
+    "home": {
+      "aboutTitle": "Acerca de Mí",
+      "skillsTitle": "Habilidades",
+      "projectsTitle": "Proyectos",
+      "contactTitle": "Contacto"
+    },
+    "about": {
+      "title": "Acerca de Mí"
+    },
+    "contact": {
+      "title": "Ponerse en Contacto",
+      "sendMessage": "Enviar un Mensaje"
+    },
+    "projects": {
+      "title": "Mis Proyectos",
+      "categories": "Categorías de Proyectos"
+    }
+  },
+  "skills": {
+    "tools": "Herramientas principales:",
+    "categories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "database": "Bases de Datos",
+      "tools": "Herramientas",
+      "mobile": "Móvil",
+      "design": "Diseño & UX",
+      "cloud": "Cloud & DevOps"
+    },
+    "levels": {
+      "expert": "Experto",
+      "advanced": "Avanzado",
+      "intermediate": "Intermedio",
+      "beginner": "Principiante"
+    }
+  },
+  "data": {
+    "about": {
+      "bio": "Desarrolladora apasionada por la tecnología e innovación, especializada en React, Node.js y desarrollo de aplicaciones web modernas.",
+      "marketSince": "Activa en el mercado desde 2019",
+      "journeyText": "Mi trayectoria comenzó con plantillas de email y evolucionó hacia aplicaciones complejas en la nube. Tengo pasión por crear experiencias de usuario excepcionales y código mantenible.",
+      "longBio": "Soy una desarrolladora full stack con más de 3 años de experiencia en desarrollo de aplicaciones web y móviles.\n\nMi pasión por la tecnología comenzó durante la universidad de Ciencias de la Computación, donde descubrí el poder de transformar ideas en soluciones digitales funcionales.\n\nMe especializo en tecnologías modernas como React, Next.js, TypeScript y Node.js, siempre buscando las mejores prácticas y patrones de desarrollo. Tengo experiencia en desarrollo de aplicaciones escalables, APIs RESTful e integración con bases de datos.\n\nAdemás del desarrollo, tengo interés en UX/UI Design y siempre busco crear experiencias digitales que sean tanto funcionales como visualmente atractivas.\n\nSiempre estoy en busca de nuevos desafíos y oportunidades para crecer profesionalmente, contribuyendo a proyectos innovadores que marquen la diferencia.",
+      "location": "São Paulo, SP - Brasil",
+      "resumeButton": "Descargar CV",
+      "experience": {
+        "title": "Experiencia Profesional",
+        "companies": {
+          "techcorp": "TechCorp Solutions",
+          "startupxyz": "StartupXYZ",
+          "freelancer": "Freelancer",
+          "on2dex01": "On2/DEX01",
+          "aceleradora": "Aceleradora Ágil",
+          "leef": "Leef"
+        },
+        "positions": {
+          "seniorFullstack": "Desarrolladora Full Stack Senior",
+          "frontend": "Desarrolladora Frontend",
+          "web": "Desarrolladora Web",
+          "frontendDev": "Frontend Developer",
+          "junior": "Desarrolladora Jr.",
+          "fullstack": "Full-stack Developer"
+        },
+        "descriptions": {
+          "techcorp": "Desarrollo de aplicaciones web y móviles, liderazgo técnico de equipos y arquitectura de sistemas escalables.",
+          "startupxyz": "Desarrollo de interfaces de usuario responsivas y optimización de rendimiento de aplicaciones React.",
+          "freelancer": "Desarrollo de sitios web y aplicaciones web para clientes diversos, desde landing pages hasta sistemas completos.",
+          "on2dex01": "Desarrollo de páginas y componentes para el portal Toyota Brasil & Argentina",
+          "aceleradora": "Proyectos sociales y desarrollo de soluciones innovadoras",
+          "freelancerTemplates": "Plantillas de email, sitios institucionales y prototipos móviles",
+          "leef": "Desarrollo de aplicaciones web con React, Node.js e integración con APIs"
+        }
+      },
+      "education": {
+        "title": "Formación Académica",
+        "institutions": {
+          "usp": "Universidad de São Paulo",
+          "rocketseat": "Rocketseat"
+        },
+        "degrees": {
+          "bachelor": "Licenciatura",
+          "certification": "Certificación"
+        },
+        "fields": {
+          "computerScience": "Ciencias de la Computación",
+          "fullstackDev": "Desarrollo Full Stack"
+        },
+        "descriptions": {
+          "usp": "Formación sólida en fundamentos de la computación, algoritmos, estructuras de datos y desarrollo de software.",
+          "rocketseat": "Bootcamp intensivo enfocado en React, Node.js y desarrollo de aplicaciones modernas."
+        }
+      },
+      "certifications": {
+        "title": "Certificaciones",
+        "names": {
+          "awsDeveloper": "AWS Certified Developer",
+          "reactDeveloper": "React Developer Certification",
+          "typescriptFundamentals": "TypeScript Fundamentals"
+        },
+        "issuers": {
+          "aws": "Amazon Web Services",
+          "meta": "Meta",
+          "microsoft": "Microsoft"
+        }
+      },
+      "values": {
+        "title": "Mis Valores",
+        "innovation": {
+          "title": "Innovación",
+          "description": "Siempre buscando soluciones creativas y tecnologías emergentes"
+        },
+        "collaboration": {
+          "title": "Colaboración",
+          "description": "El trabajo en equipo y la comunicación efectiva son fundamentales"
+        },
+        "quality": {
+          "title": "Calidad",
+          "description": "Código limpio, pruebas y buenas prácticas en cada proyecto"
+        },
+        "passion": {
+          "title": "Pasión",
+          "description": "El amor por lo que hago se refleja en cada línea de código"
+        }
+      }
+    },
+    "projects": {
+      "titles": {
+        "toyotaBrasil": "Portal Toyota Brasil",
+        "toyotaArgentina": "Portal Toyota Argentina",
+        "toyotaVenezuela": "Portal Toyota Venezuela",
+        "kintoBrasil": "Kinto Mobility Brasil",
+        "kintoArgentina": "Kinto Mobility Argentina - Contacto",
+        "alright": "Alright - Consultoría Digital",
+        "cruzVermelha": "Cruz Roja - Cobertura Humanitaria",
+        "descarteCerto": "Descarte Certo"
+      },
+      "descriptions": {
+        "toyotaBrasil": "Portal institucional de Toyota Brasil con interfaz moderna y responsiva",
+        "toyotaArgentina": "Sitio web institucional de Toyota Argentina con diseño responsivo",
+        "toyotaVenezuela": "Sitio web oficial de Toyota Venezuela",
+        "kintoBrasil": "Plataforma de movilidad urbana de Kinto en Brasil",
+        "kintoArgentina": "Página de contacto de Kinto Mobility Argentina",
+        "alright": "Sitio web de Alright, consultoría en transformación digital",
+        "cruzVermelha": "Plataforma de cobertura humanitaria de la Cruz Roja",
+        "descarteCerto": "Mi primer proyecto como desarrolladora - el inicio de mi trayectoria en tecnología. Proyecto social enfocado en sostenibilidad y descarte consciente de materiales."
+      },
+      "longDescriptions": {
+        "toyotaBrasil": "Desarrollo de páginas y componentes para el portal oficial de Toyota Brasil, enfocándose en rendimiento, accesibilidad y experiencia del usuario.",
+        "toyotaArgentina": "Contribución al desarrollo del portal de Toyota Argentina, manteniendo consistencia visual y funcional con los estándares internacionales de la marca.",
+        "toyotaVenezuela": "Desarrollo y mantenimiento del sitio web institucional de Toyota Venezuela, adaptado al mercado local con enfoque en la experiencia del usuario.",
+        "kintoBrasil": "Desarrollo de la plataforma digital de Kinto Mobility Brasil, servicio de movilidad urbana de Toyota, con enfoque en soluciones de transporte sostenible.",
+        "kintoArgentina": "Desarrollo de la página de contacto y formularios interactivos para Kinto Mobility Argentina, optimizada para conversión y experiencia del usuario.",
+        "alright": "Desarrollo del sitio web institucional de Alright, consultoría especializada en transformación digital y soluciones tecnológicas para empresas.",
+        "cruzVermelha": "Desarrollo de la plataforma digital para cobertura humanitaria de la Cruz Roja, facilitando el acceso a información y recursos para comunidades en situación de vulnerabilidad.",
+        "descarteCerto": "Este fue mi primer proyecto como desarrolladora, marcando el inicio de mi trayectoria en tecnología. Proyecto social de Aceleradora Ágil enfocado en sostenibilidad, donde aprendí los fundamentos del desarrollo web. Integración con APIs de geolocalización, formularios complejos y mapas interactivos para facilitar el descarte consciente de materiales. Una experiencia transformadora que definió mi pasión por la programación."
+      },
+      "categories": {
+        "all": "Todos",
+        "web": "Web",
+        "mobile": "Móvil"
+      }
+    },
+    "contact": {
+      "info": {
+        "whatsapp": "WhatsApp",
+        "location": "Ubicación",
+        "locationValue": "Porto Alegre, RS"
+      },
+      "socialLinks": {
+        "github": "GitHub",
+        "linkedin": "LinkedIn",
+        "twitter": "Twitter",
+        "email": "Email"
+      },
+      "whatsappAction": "Chatear en WhatsApp"
+    }
+  },
+  "common": {
+    "loading": "Cargando...",
+    "error": "Error",
+    "success": "Éxito",
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "view": "Ver",
+    "close": "Cerrar",
+    "back": "Atrás",
+    "next": "Siguiente",
+    "previous": "Anterior",
+    "search": "Buscar",
+    "filter": "Filtrar",
+    "sort": "Ordenar",
+    "more": "Más",
+    "less": "Menos",
+    "showAll": "Mostrar Todos",
+    "hideAll": "Ocultar Todos",
+    "years": "años"
+  }
+}
