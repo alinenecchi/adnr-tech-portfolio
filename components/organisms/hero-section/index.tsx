@@ -16,7 +16,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   isDarkMode,
 }) => {
   const { t, language } = useLanguage();
-  const { theme } = useTheme();
   const [heroRef, inView] = useIntersectionObserver({ threshold: 0.1 });
 
   const handleDownloadCV = () => {

@@ -119,7 +119,7 @@ describe("LanguageContext", () => {
   it("handles nested translation keys", () => {
     const NestedTestComponent = () => {
       const { t } = useLanguage();
-      return <div data-testid="nested-translation">{t("hero.greeting")}</div>;
+      return <div data-testid="nested-translation">{t("navigation.home")}</div>;
     };
 
     render(
@@ -129,7 +129,7 @@ describe("LanguageContext", () => {
     );
 
     expect(screen.getByTestId("nested-translation")).toHaveTextContent(
-      "Portfolio"
+      "Início"
     );
   });
 

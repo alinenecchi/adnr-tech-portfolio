@@ -64,7 +64,9 @@ describe("ProjectsSection Component", () => {
 
   it("displays GitHub link for Descarte Certo", () => {
     renderWithProviders(<ProjectsSection />);
-    expect(screen.getByText("Código")).toBeInTheDocument();
+    // Agora temos múltiplos botões "Código", então verificamos se existe pelo menos um
+    const codeButtons = screen.getAllByText("Código");
+    expect(codeButtons.length).toBeGreaterThan(0);
   });
 
   it("shows more projects link", () => {

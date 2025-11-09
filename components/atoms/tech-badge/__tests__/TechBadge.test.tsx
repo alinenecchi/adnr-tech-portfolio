@@ -23,8 +23,8 @@ describe("TechBadge Component", () => {
   it("renders different technologies with appropriate colors", () => {
     const { rerender } = render(<TechBadge tech="TypeScript" />);
     expect(screen.getByText("TypeScript")).toHaveClass(
-      "bg-blue-100",
-      "text-blue-800"
+      "bg-purple-100",
+      "text-purple-800"
     );
 
     rerender(<TechBadge tech="Node.js" />);
