@@ -10,28 +10,6 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: true, // Temporariamente ignorar para permitir build na Vercel
   },
-  // Webpack config removida temporariamente para compatibilidade com Turbopack
-  // Se necessário, podemos adicionar configuração específica para Turbopack
-  // webpack: (config, { isServer }) => {
-  //   // Handle SVG files
-  //   config.module.rules.push({
-  //     test: /\.svg$/,
-  //     use: ["@svgr/webpack"],
-  //   });
-
-  //   // Fix for Node.js modules in client-side
-  //   if (!isServer) {
-  //     config.resolve.fallback = {
-  //       ...config.resolve.fallback,
-  //       fs: false,
-  //       path: false,
-  //       os: false,
-  //     };
-  //   }
-
-  //   return config;
-  // },
-  // transpilePackages: ["@svgr/webpack"],
   compress: true,
   poweredByHeader: false,
   generateEtags: false,
