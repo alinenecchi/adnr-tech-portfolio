@@ -227,7 +227,7 @@ export const PersonalProjectsSection: React.FC<
               <div className={styles.navDots}>
                 {Array.from({ length: maxIndex + 1 }).map((_, index) => (
                   <button
-                    key={index}
+                    key={`dot-${index}`}
                     onClick={() => goToSlide(index)}
                     className={cn(
                       styles.dot,

@@ -68,7 +68,7 @@ describe("GridSection Component", () => {
     );
 
     const section = document.getElementById("test-section");
-    expect(section).toHaveClass("py-20", "md:py-28", "section-animate");
+    expect(section).toHaveClass("py-10", "md:py-20", "section-animate");
   });
 
   it("renders title with correct heading level", () => {
