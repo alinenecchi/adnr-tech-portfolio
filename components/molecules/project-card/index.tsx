@@ -132,34 +132,36 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         <div className="flex-1"></div>
 
         {/* Actions */}
-        <div className="flex flex-col sm:flex-row gap-2">
-          {demoUrl && (
-            <Button asChild className="flex-1">
-              <a
-                href={demoUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2"
-              >
-                <ExternalLink className="h-4 w-4" />
-                {t("projectCard.viewDemo")}
-              </a>
-            </Button>
-          )}
-          {githubUrl && (
-            <Button variant="outline" asChild className="flex-1">
-              <a
-                href={githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2"
-              >
-                <Github className="h-4 w-4" />
-                {t("projectCard.viewCode")}
-              </a>
-            </Button>
-          )}
-        </div>
+        {(demoUrl || githubUrl) && (
+          <div className="flex flex-col sm:flex-row gap-2">
+            {demoUrl && (
+              <Button asChild className="flex-1">
+                <a
+                  href={demoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2"
+                >
+                  <ExternalLink className="h-4 w-4" />
+                  {t("projectCard.viewDemo")}
+                </a>
+              </Button>
+            )}
+            {githubUrl && (
+              <Button variant="outline" asChild className="flex-1">
+                <a
+                  href={githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2"
+                >
+                  <Github className="h-4 w-4" />
+                  {t("projectCard.viewCode")}
+                </a>
+              </Button>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );
