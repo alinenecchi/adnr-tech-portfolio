@@ -1,4 +1,4 @@
-# Portfolio Aline Rodrigues
+# Portfolio Aline Ribeiro
 
 Um portfólio moderno e responsivo desenvolvido com Next.js, TypeScript e Tailwind CSS, seguindo os princípios do Atomic Design.
 
