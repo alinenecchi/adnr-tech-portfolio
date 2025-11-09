@@ -79,7 +79,7 @@ export const projects: Project[] = [
       "React Testing Library",
       "TMDB API",
     ],
-    githubUrl: "https://github.com/alinenecchi/adnr-tech-portfolio",
+    githubUrl: "https://github.com/alinenecchi/adnr-tmdb-movies",
     liveUrl: "https://adnr-tmdb-movies.vercel.app/",
     featured: false,
     category: "web",
