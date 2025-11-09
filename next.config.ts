@@ -10,6 +10,8 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: true, // Temporariamente ignorar para permitir build na Vercel
   },
+  // Silencia warning sobre múltiplos lockfiles
+  outputFileTracingRoot: require("path").join(__dirname),
   // Webpack config removida temporariamente para compatibilidade com Turbopack
   // Se necessário, podemos adicionar configuração específica para Turbopack
   // webpack: (config, { isServer }) => {
