@@ -38,8 +38,10 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
                   title={translatedProject.title}
                   description={translatedProject.description}
                   image={translatedProject.image}
+                  video={translatedProject.video}
                   technologies={translatedProject.technologies}
                   demoUrl={translatedProject.liveUrl}
+                  githubUrl={translatedProject.githubUrl}
                   featured={true}
                 />
               );
@@ -52,49 +54,55 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
               <ProjectCard
                 title={
                   getTranslatedProject(
-                    projects.find((p) => p.id === "8") || projects[7],
+                    projects.find((p) => p.id === "2") || projects[7],
                     t
                   ).title
                 }
                 description={
                   getTranslatedProject(
-                    projects.find((p) => p.id === "8") || projects[7],
+                    projects.find((p) => p.id === "2") || projects[7],
                     t
                   ).description
                 }
                 image={
-                  projects.find((p) => p.id === "8")?.image ||
+                  projects.find((p) => p.id === "2")?.image ||
                   "https://images.unsplash.com/photo-1645520718652-9342896b0eec?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzdXN0YWluYWJsZSUyMHJlY3ljbGluZyUyMGFwcHxlbnwxfHx8fDE3NTczNjYxNjJ8MA&ixlib=rb-4.1.0&q=80&w=1080"
                 }
+                video={projects.find((p) => p.id === "2")?.video}
                 technologies={
-                  projects.find((p) => p.id === "8")?.technologies || [
+                  projects.find((p) => p.id === "2")?.technologies || [
                     "React",
                     "Node.js",
                   ]
                 }
-                githubUrl={projects.find((p) => p.id === "8")?.githubUrl}
+                demoUrl={projects.find((p) => p.id === "2")?.liveUrl}
+                githubUrl={projects.find((p) => p.id === "2")?.githubUrl}
                 featured={false}
               />
             </div>
           </div>
         </div>
 
-        {/* Segunda linha: Demais projetos em cards pequenos (sem GitHub) */}
+        {/* Segunda linha: Demais projetos em cards pequenos */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.slice(1, 7).map((project) => {
-            const translatedProject = getTranslatedProject(project, t);
-            return (
-              <ProjectCard
-                key={project.id}
-                title={translatedProject.title}
-                description={translatedProject.description}
-                image={translatedProject.image}
-                technologies={translatedProject.technologies}
-                demoUrl={translatedProject.liveUrl}
-                featured={false}
-              />
-            );
-          })}
+          {projects
+            .filter((project) => project.id !== "1" && project.id !== "2")
+            .map((project) => {
+              const translatedProject = getTranslatedProject(project, t);
+              return (
+                <ProjectCard
+                  key={project.id}
+                  title={translatedProject.title}
+                  description={translatedProject.description}
+                  image={translatedProject.image}
+                  video={translatedProject.video}
+                  technologies={translatedProject.technologies}
+                  demoUrl={translatedProject.liveUrl}
+                  githubUrl={translatedProject.githubUrl}
+                  featured={false}
+                />
+              );
+            })}
         </div>
       </div>
 

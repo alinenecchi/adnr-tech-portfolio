@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { ProjectCardProps } from "./ProjectCard.types";
 import { cn } from "@/lib/utils";
 import { useTheme } from "@/contexts/ThemeContext";
@@ -13,6 +13,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   title,
   description,
   image,
+  video,
   technologies,
   demoUrl,
   githubUrl,
@@ -24,6 +25,11 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
     theme === "clean-minimal"
       ? `0 4px 6px -1px var(--color-shadow), 0 2px 4px -1px var(--color-shadow)`
       : "";
+
+  // Determina se deve usar vídeo ou imagem
+  const hasVideo = !!video;
+  const hasImage = !!image;
+  const [videoError, setVideoError] = useState(false);
 
   return (
     <div
@@ -38,15 +44,53 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
     >
       <div
         className={cn(
-          "overflow-hidden",
+          "overflow-hidden relative",
           title.includes("Descarte Certo") ? "aspect-[4/3]" : "aspect-video"
         )}
       >
-        <img
-          src={image}
-          alt={title}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-        />
+        {hasVideo && !videoError ? (
+          <video
+            src={video}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            poster={image} // Usa a imagem como capa/poster do vídeo
+            onError={() => {
+              // Se o vídeo falhar ao carregar, usa a imagem como fallback
+              setVideoError(true);
+            }}
+            onMouseEnter={(e) => {
+              const videoElement = e.currentTarget;
+              videoElement.play().catch(() => {
+                // Ignora erros de autoplay (alguns navegadores bloqueiam)
+              });
+            }}
+            onMouseLeave={(e) => {
+              const videoElement = e.currentTarget;
+              videoElement.pause();
+              videoElement.currentTime = 0; // Volta ao início quando o mouse sai
+            }}
+          >
+            Seu navegador não suporta o elemento de vídeo.
+          </video>
+        ) : hasImage ? (
+          <img
+            src={image}
+            alt={title}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          />
+        ) : (
+          <div
+            className="w-full h-full flex items-center justify-center"
+            style={{ backgroundColor: `var(--color-background-tertiary)` }}
+          >
+            <span style={{ color: `var(--color-text-secondary)` }}>
+              Sem mídia
+            </span>
+          </div>
+        )}
       </div>
 
       <div
@@ -88,34 +132,36 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         <div className="flex-1"></div>
 
         {/* Actions */}
-        <div className="flex flex-col sm:flex-row gap-2">
-          {demoUrl && (
-            <Button asChild className="flex-1">
-              <a
-                href={demoUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2"
-              >
-                <ExternalLink className="h-4 w-4" />
-                {t("projectCard.viewDemo")}
-              </a>
-            </Button>
-          )}
-          {githubUrl && (
-            <Button variant="outline" asChild className="flex-1">
-              <a
-                href={githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2"
-              >
-                <Github className="h-4 w-4" />
-                {t("projectCard.viewCode")}
-              </a>
-            </Button>
-          )}
-        </div>
+        {(demoUrl || githubUrl) && (
+          <div className="flex flex-col sm:flex-row gap-2">
+            {demoUrl && (
+              <Button asChild className="flex-1">
+                <a
+                  href={demoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2"
+                >
+                  <ExternalLink className="h-4 w-4" />
+                  {t("projectCard.viewDemo")}
+                </a>
+              </Button>
+            )}
+            {githubUrl && (
+              <Button variant="outline" asChild className="flex-1">
+                <a
+                  href={githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2"
+                >
+                  <Github className="h-4 w-4" />
+                  {t("projectCard.viewCode")}
+                </a>
+              </Button>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );

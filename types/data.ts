@@ -3,7 +3,8 @@ export interface Project {
   title: string;
   description: string;
   longDescription?: string;
-  image: string;
+  image?: string;
+  video?: string;
   technologies: string[];
   githubUrl?: string;
   liveUrl?: string;
@@ -68,4 +69,3 @@ export interface Certification {
   credentialId?: string;
   credentialUrl?: string;
 }
-
