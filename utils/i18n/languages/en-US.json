@@ -265,7 +265,8 @@
         "kintoArgentina": "Kinto Mobility Argentina - Contact",
         "alright": "Alright - Digital Consulting",
         "cruzVermelha": "Red Cross - Humanitarian Coverage",
-        "descarteCerto": "Descarte Certo"
+        "descarteCerto": "Descarte Certo",
+        "tmdbMovies": "TMDB Movies"
       },
       "descriptions": {
         "toyotaBrasil": "Toyota Brazil institutional portal with modern and responsive interface",
@@ -275,7 +276,8 @@
         "kintoArgentina": "Kinto Mobility Argentina contact page",
         "alright": "Alright website, digital transformation consulting",
         "cruzVermelha": "Red Cross humanitarian coverage platform",
-        "descarteCerto": "My first project as a developer - the beginning of my journey in technology. Social project focused on sustainability and conscious material disposal."
+        "descarteCerto": "My first project as a developer - the beginning of my journey in technology. Social project focused on sustainability and conscious material disposal.",
+        "tmdbMovies": "React application to explore movies, create favorite lists and discover new content through The Movie Database (TMDB) API"
       },
       "longDescriptions": {
         "toyotaBrasil": "Development of pages and components for the official Toyota Brazil portal, focusing on performance, accessibility and user experience.",
@@ -285,7 +287,8 @@
         "kintoArgentina": "Development of contact page and interactive forms for Kinto Mobility Argentina, optimized for conversion and user experience.",
         "alright": "Development of Alright institutional website, consulting specialized in digital transformation and technological solutions for companies.",
         "cruzVermelha": "Development of digital platform for Red Cross humanitarian coverage, facilitating access to information and resources for vulnerable communities.",
-        "descarteCerto": "This was my first project as a developer, marking the beginning of my journey in technology. Social project from Aceleradora Ágil focused on sustainability, where I learned the fundamentals of web development. Integration with geolocation APIs, complex forms and interactive maps to facilitate conscious material disposal. A transformative experience that defined my passion for programming."
+        "descarteCerto": "This was my first project as a developer, marking the beginning of my journey in technology. Social project from Aceleradora Ágil focused on sustainability, where I learned the fundamentals of web development. Integration with geolocation APIs, complex forms and interactive maps to facilitate conscious material disposal. A transformative experience that defined my passion for programming.",
+        "tmdbMovies": "Complete movie system developed with React and TypeScript that allows users to explore popular movies, search content, view details and manage a personalized favorites list. Implements routing with React Router, global state management with Context API, TMDB REST API consumption, error handling and loading states, infinite scroll, filters and sorting. Fully responsive and with unit tests."
       },
       "categories": {
         "all": "All",

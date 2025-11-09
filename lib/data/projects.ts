@@ -1,28 +1,33 @@
 import { Project } from "@/types/data";
 
 // Função para obter projeto traduzido
-export const getTranslatedProject = (project: Project, t: (key: string) => string): Project => {
+export const getTranslatedProject = (
+  project: Project,
+  t: (key: string) => string
+): Project => {
   const projectKeyMap: Record<string, string> = {
     "1": "toyotaBrasil",
-    "2": "toyotaArgentina", 
+    "2": "toyotaArgentina",
     "3": "toyotaVenezuela",
     "4": "kintoBrasil",
     "5": "kintoArgentina",
     "6": "alright",
     "7": "cruzVermelha",
     "8": "descarteCerto",
+    "9": "tmdbMovies",
   };
-  
+
   const key = projectKeyMap[project.id];
   if (key) {
     return {
       ...project,
       title: t(`data.projects.titles.${key}`),
       description: t(`data.projects.descriptions.${key}`),
-      longDescription: t(`data.projects.longDescriptions.${key}`) || project.longDescription,
+      longDescription:
+        t(`data.projects.longDescriptions.${key}`) || project.longDescription,
     };
   }
-  
+
   return project;
 };
 
@@ -35,6 +40,7 @@ export const projects: Project[] = [
     longDescription:
       "Desenvolvimento de páginas e componentes para o portal oficial da Toyota Brasil, focando em performance, acessibilidade e experiência do usuário.",
     image: "/images/projets/Toyota-br.png",
+    // video: "https://res.cloudinary.com/seu-cloud/video/upload/v123/toyota-demo.mp4", // Exemplo: adicione a URL do vídeo aqui
     technologies: [
       "React",
       "Next.js",
@@ -162,6 +168,30 @@ export const projects: Project[] = [
       "https://images.unsplash.com/photo-1645520718652-9342896b0eec?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzdXN0YWluYWJsZSUyMHJlY3ljbGluZyUyMGFwcHxlbnwxfHx8fDE3NTczNjYxNjJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
     technologies: ["React", "CSS", "Java", "Spring Boot"],
     githubUrl: "https://github.com/aceleradora-TW/descarte-certo",
+    featured: false,
+    category: "web",
+  },
+  {
+    id: "9",
+    title: "TMDB Movies",
+    description:
+      "Aplicação React para explorar filmes, criar listas de favoritos e descobrir novos conteúdos através da API do The Movie Database (TMDB).",
+    longDescription:
+      "Sistema completo de filmes desenvolvido com React e TypeScript que permite aos usuários explorar filmes populares, buscar conteúdos, visualizar detalhes e gerenciar uma lista personalizada de favoritos. Implementa roteamento com React Router, gerenciamento de estado global com Context API, consumo da API REST do TMDB, tratamento de erros e estados de loading, infinite scroll, filtros e ordenação. Totalmente responsivo e com testes unitários.",
+    image: "/images/projets/tmdb-image.png",
+    video: "/videos/tmdb-movies.mp4",
+    technologies: [
+      "React 18+",
+      "TypeScript",
+      "React Router",
+      "Context API",
+      "Axios",
+      "CSS Modules",
+      "Jest",
+      "React Testing Library",
+      "TMDB API",
+    ],
+    githubUrl: "https://github.com/alinenecchi/adnr-tech-portfolio",
     featured: false,
     category: "web",
   },

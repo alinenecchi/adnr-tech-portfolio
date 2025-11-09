@@ -38,6 +38,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
                   title={translatedProject.title}
                   description={translatedProject.description}
                   image={translatedProject.image}
+                  video={translatedProject.video}
                   technologies={translatedProject.technologies}
                   demoUrl={translatedProject.liveUrl}
                   featured={true}
@@ -52,27 +53,28 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
               <ProjectCard
                 title={
                   getTranslatedProject(
-                    projects.find((p) => p.id === "8") || projects[7],
+                    projects.find((p) => p.id === "9") || projects[7],
                     t
                   ).title
                 }
                 description={
                   getTranslatedProject(
-                    projects.find((p) => p.id === "8") || projects[7],
+                    projects.find((p) => p.id === "9") || projects[7],
                     t
                   ).description
                 }
                 image={
-                  projects.find((p) => p.id === "8")?.image ||
+                  projects.find((p) => p.id === "9")?.image ||
                   "https://images.unsplash.com/photo-1645520718652-9342896b0eec?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzdXN0YWluYWJsZSUyMHJlY3ljbGluZyUyMGFwcHxlbnwxfHx8fDE3NTczNjYxNjJ8MA&ixlib=rb-4.1.0&q=80&w=1080"
                 }
+                video={projects.find((p) => p.id === "9")?.video}
                 technologies={
-                  projects.find((p) => p.id === "8")?.technologies || [
+                  projects.find((p) => p.id === "9")?.technologies || [
                     "React",
                     "Node.js",
                   ]
                 }
-                githubUrl={projects.find((p) => p.id === "8")?.githubUrl}
+                githubUrl={projects.find((p) => p.id === "9")?.githubUrl}
                 featured={false}
               />
             </div>
@@ -81,7 +83,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
 
         {/* Segunda linha: Demais projetos em cards pequenos (sem GitHub) */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.slice(1, 7).map((project) => {
+          {projects.slice(1, 8).map((project) => {
             const translatedProject = getTranslatedProject(project, t);
             return (
               <ProjectCard
@@ -89,6 +91,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
                 title={translatedProject.title}
                 description={translatedProject.description}
                 image={translatedProject.image}
+                video={translatedProject.video}
                 technologies={translatedProject.technologies}
                 demoUrl={translatedProject.liveUrl}
                 featured={false}

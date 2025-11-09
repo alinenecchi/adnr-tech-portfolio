@@ -266,7 +266,8 @@
         "kintoArgentina": "Kinto Mobility Argentina - Contacto",
         "alright": "Alright - Consultoría Digital",
         "cruzVermelha": "Cruz Roja - Cobertura Humanitaria",
-        "descarteCerto": "Descarte Certo"
+        "descarteCerto": "Descarte Certo",
+        "tmdbMovies": "TMDB Movies"
       },
       "descriptions": {
         "toyotaBrasil": "Portal institucional de Toyota Brasil con interfaz moderna y responsiva",
@@ -276,7 +277,8 @@
         "kintoArgentina": "Página de contacto de Kinto Mobility Argentina",
         "alright": "Sitio web de Alright, consultoría en transformación digital",
         "cruzVermelha": "Plataforma de cobertura humanitaria de la Cruz Roja",
-        "descarteCerto": "Mi primer proyecto como desarrolladora - el inicio de mi trayectoria en tecnología. Proyecto social enfocado en sostenibilidad y descarte consciente de materiales."
+        "descarteCerto": "Mi primer proyecto como desarrolladora - el inicio de mi trayectoria en tecnología. Proyecto social enfocado en sostenibilidad y descarte consciente de materiales.",
+        "tmdbMovies": "Aplicación React para explorar películas, crear listas de favoritos y descubrir nuevo contenido a través de la API de The Movie Database (TMDB)"
       },
       "longDescriptions": {
         "toyotaBrasil": "Desarrollo de páginas y componentes para el portal oficial de Toyota Brasil, enfocándose en rendimiento, accesibilidad y experiencia del usuario.",
@@ -286,7 +288,8 @@
         "kintoArgentina": "Desarrollo de la página de contacto y formularios interactivos para Kinto Mobility Argentina, optimizada para conversión y experiencia del usuario.",
         "alright": "Desarrollo del sitio web institucional de Alright, consultoría especializada en transformación digital y soluciones tecnológicas para empresas.",
         "cruzVermelha": "Desarrollo de la plataforma digital para cobertura humanitaria de la Cruz Roja, facilitando el acceso a información y recursos para comunidades en situación de vulnerabilidad.",
-        "descarteCerto": "Este fue mi primer proyecto como desarrolladora, marcando el inicio de mi trayectoria en tecnología. Proyecto social de Aceleradora Ágil enfocado en sostenibilidad, donde aprendí los fundamentos del desarrollo web. Integración con APIs de geolocalización, formularios complejos y mapas interactivos para facilitar el descarte consciente de materiales. Una experiencia transformadora que definió mi pasión por la programación."
+        "descarteCerto": "Este fue mi primer proyecto como desarrolladora, marcando el inicio de mi trayectoria en tecnología. Proyecto social de Aceleradora Ágil enfocado en sostenibilidad, donde aprendí los fundamentos del desarrollo web. Integración con APIs de geolocalización, formularios complejos y mapas interactivos para facilitar el descarte consciente de materiales. Una experiencia transformadora que definió mi pasión por la programación.",
+        "tmdbMovies": "Sistema completo de películas desarrollado con React y TypeScript que permite a los usuarios explorar películas populares, buscar contenido, ver detalles y gestionar una lista personalizada de favoritos. Implementa enrutamiento con React Router, gestión de estado global con Context API, consumo de la API REST de TMDB, manejo de errores y estados de carga, infinite scroll, filtros y ordenación. Totalmente responsivo y con pruebas unitarias."
       },
       "categories": {
         "all": "Todos",
